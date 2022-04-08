@@ -1,0 +1,15 @@
+{
+  "name": "jm-garming",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs --open",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "dependencies": {
+    "vuepress": "^1.9.7",
+    "vuepress-theme-reco": "^1.6.11"
+  }
+}
