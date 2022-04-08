@@ -40,7 +40,6 @@ module.exports = {
         nav,
         // 博客配置
         // blogConfig: {
-            
         //     category: {
         //         location: 2,     // 在导航栏菜单中所占的位置，默认2
         //         text: '分类' // 默认文案 “分类”
