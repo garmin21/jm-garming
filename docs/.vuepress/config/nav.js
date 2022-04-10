@@ -17,5 +17,13 @@ module.exports = [
         ]
     },
     { text: '时间线', link: '/timeline/', icon: 'reco-date' },
+    { 
+        text: 'BUG', 
+        icon: 'reco-faq',
+        ariaLabel: 'awesome Menu',
+        items: [
+            { text: '讯康检中系统分科管理', link: '/bug/bug-1/' },
+        ] 
+    },
     // { text: '关于我', link: '/about/', icon: 'reco-message' }
 ]
