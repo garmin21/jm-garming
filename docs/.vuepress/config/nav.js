@@ -12,6 +12,18 @@ module.exports = [
                     { text: 'vite', link: '/awesome/engineering/vite.md' },
                     { text: 'webpack', link: '/awesome/engineering/webpack.md' },
                 ]
+            },
+            {
+                text: '代码质量',
+                link: '/awesome/code-quality/'
+            },
+            {
+                text: '面试',
+                link: '/awesome/interview/'
+            },
+            {
+                text: '性能优化',
+                link: '/awesome/lighthouse/'
             }
         ]
     },
