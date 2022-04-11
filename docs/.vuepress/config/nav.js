@@ -14,6 +14,7 @@ module.exports = [
             { text: '服务端渲染', link: '/awesome/ssr-render/' },
             { text: '前端架构', link: '/awesome/framework/' },
             { text: 'Typescript', link: '/awesome/typescript/' },
+            { text: '知识库', link: '/awesome/knowledge-base/' },
         ]
     },
     { text: '时间线', link: '/timeline/', icon: 'reco-date' },
