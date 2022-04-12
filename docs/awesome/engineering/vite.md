@@ -47,31 +47,25 @@ title: "vite"
 
 - 将 markdown 文件转成 vue 组件 https://juejin.cn/post/6912362638454292494
 
-### Vite2 + Vue3 + TypeScript + Pinia 搭建一套企业级的开发脚手架
-
-- https://zhuanlan.zhihu.com/p/441467856?utm_source=wechat_session&utm_medium=social&utm_oi=907623236341235712&utm_campaign=shareopn
-
-### 小蝌蚪传记：前端实用技巧，通过 babel 精准操作 js 文件
-
-- https://segmentfault.com/a/1190000041081789
-
-### vite + vue3 的 h5 模版
-
-- https://github.com/ynzy/vite-vue3-h5-template
-
-### Vite2+Vue3+TypeScript：搭建企业级轻量框架实践
-
-- https://juejin.cn/post/7052593172613955614#heading-19
-
-### 一个 Vue3 的 Starter，让丝滑快人一步
-
-- https://juejin.cn/post/7054757895853834276
-
 ### vite-plugin-pages
 
 一个类似 nuxt.js 自动根据 pages 目录下文件 生成对应路由的 vite 插件
 
 - https://github.com/hannoeru/vite-plugin-pages#file-system-routing
+
+### vite-plugin 常用的插件
+
+- https://juejin.cn/post/6993740289605124126
+
+---
+
+<!-- ### 小蝌蚪传记：前端实用技巧，通过 babel 精准操作 js 文件 -->
+
+<!-- - https://segmentfault.com/a/1190000041081789 -->
+
+### 一个 Vue3 的 Starter，让丝滑快人一步
+
+- https://juejin.cn/post/7054757895853834276
 
 ### 5 个知识点，让 Vue3 开发更加丝滑
 
@@ -105,10 +99,6 @@ title: "vite"
 
 - https://juejin.cn/post/6991405764275339295
 
-### vite-plugin 常用的插件
-
-- https://juejin.cn/post/6993740289605124126
-
 ### Vue3 全家桶 + TS+ Vite2 + element-plus 搭建简洁时尚的博客网站实战及踩坑记
 
 - https://juejin.cn/post/6959174069577220110
@@ -116,10 +106,6 @@ title: "vite"
 ### 从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境
 
 - https://juejin.cn/post/6951649464637636622
-
-### vite-plugin-vuedoc
-
-- https://juejin.cn/post/6912362638454292494
 
 ### vite 工程化实践，建议收藏
 

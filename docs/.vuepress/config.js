@@ -32,10 +32,10 @@ module.exports = {
               "location": 2,
               "text": "分类"
             },
-            "tag": {
-              "location": 3,
-              "text": "标签"
-            }
+            // "tag": {
+            //   "location": 3,
+            //   "text": "标签"
+            // }
         },
         nav,
         // 博客配置
