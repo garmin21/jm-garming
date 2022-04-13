@@ -13,3 +13,11 @@ title: "有趣的文章"
 ### vite 动态 import 引入打包报错解决方案
 
 - https://juejin.cn/post/6951557699079569422
+
+### javascript 数据结构和算法
+
+- https://github.com/garmin21/data_structures_and_algorithms_using_javascript
+
+### JavaScript Date Snippets: js 代码片段
+
+- https://www.30secondsofcode.org/js/t/date/p/1

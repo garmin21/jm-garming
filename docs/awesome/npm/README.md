@@ -29,3 +29,7 @@ javascript 日期工具库: <a href="https://date-fns.org/">https://date-fns.org
 ::: tip
 列出（遍历）目录下的所有文件，包括子目录（支持 TypeScript: <a href="https://github.com/leizongmin/node-rd">https://github.com/leizongmin/node-rd</a>
 :::
+
+::: tip
+外接显示屏亮度调节神器: <a href="https://github.com/MonitorControl/MonitorControl/releases">https://github.com/MonitorControl/MonitorControl/releases</a>
+:::
