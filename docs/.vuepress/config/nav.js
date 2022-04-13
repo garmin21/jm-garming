@@ -1,5 +1,5 @@
 module.exports = [
-    { text: '首页', link: '/', icon: 'reco-home' },
+    { text: 'Vue3', link: '/awesome/engineering/vue3.md', icon: 'reco-other' },
     { 
         text: '收藏', 
         ariaLabel: 'awesome Menu',
@@ -27,5 +27,5 @@ module.exports = [
             { text: '讯康检中系统分科管理', link: '/bug/bug-1/' },
         ] 
     },
-    // { text: '关于我', link: '/about/', icon: 'reco-message' }
+    { text: '有趣的文章', link: '/interesting.md', icon: 'reco-blog' }
 ]

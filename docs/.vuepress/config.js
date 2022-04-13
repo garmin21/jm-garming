@@ -30,7 +30,7 @@ module.exports = {
         blogConfig: {
             "category": {
               "location": 2,
-              "text": "分类"
+              "text": "基础"
             },
             // "tag": {
             //   "location": 3,

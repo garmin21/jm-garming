@@ -148,3 +148,99 @@ Function.prototype.apply = function (context, arr) {
   return result;
 };
 ```
+
+## bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。
+
+### 根据介绍可以得出结论:
+
+1. bind 方法的第一个参数是 this
+2. bind 会返回一个绑定函数
+
+```js
+Function.prototype.myBind = function () {
+  let args = Array.prototype.slice.call(arguments, 1);
+  let self = arguments[0];
+  let func = this;
+
+  return function () {};
+};
+```
+
+### 接下来在看
+
+```js
+var obj = {
+  name: "garming",
+};
+function original(a, b) {
+  console.log(this.name);
+  console.log([a, b]);
+  return false;
+}
+var bound = original.bind(obj, 1);
+var boundResult = bound(2); // 'garming', [1, 2]
+console.log(boundResult); // false
+console.log(original.bind.name); // 'bind'
+console.log(original.bind.length); // 1
+console.log(original.bind().length); // 2 返回original函数的形参个数
+
+console.log(bound.name); // 'bound original'
+console.log(function () {}.bind().name); // 'bound '
+console.log(function () {}.bind().length); // 0
+```
+
+得出结论
+
+1. bind 的第一个参数 作为 this
+2. 在传递形参数给 bind 和 绑定函数的形参，最后被合并处理了
+3. 绑定函数的返回值 是 original 的返回值
+4. bind 函数的 参数长度为 除 this 外的参数个数
+5. bind 返回的函数 也就是 是 original 的形参 个数
+
+至此贴出代码
+
+```js
+Function.prototype.myBind = function () {
+  let args0 = Array.prototype.slice.call(arguments, 1);
+  let self = arguments[0];
+  let func = this;
+  return function () {
+    let args1 = Array.prototype.slice.call(arguments, 0);
+    const result = func.apply(self, [].concat(args0, args1));
+    return result;
+  };
+};
+
+var obj = {
+  name: "garming",
+};
+function original(a, b) {
+  console.log(this.name);
+  console.log([a, b]);
+  return false;
+}
+var bound = original.myBind(obj, 1);
+let res = bound(2);
+console.log(res); // 'garming', [1, 2]
+```
+
+乍一看，好像，已经实现了 bind 了，其实还没有
+
+### 我们知道函数 是可以通过 new 实例对象的
+
+```js
+var obj = {
+  name: "garming",
+};
+function original(a, b) {
+  this.name = b;
+}
+var bound = original.bind(obj, 1);
+console.log(new bound(2)); // original {name: 2}
+```
+
+所以改造之前的 myBind
+
+```js
+
+```

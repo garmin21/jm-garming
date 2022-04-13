@@ -17,3 +17,7 @@ title: "Typescript"
 ### TypeScript, 解读高级类型
 
 - https://juejin.cn/post/6844903902563794952
+
+### 用 typescript 类型来推算斐波那契
+
+- https://juejin.cn/post/7055881752409014309

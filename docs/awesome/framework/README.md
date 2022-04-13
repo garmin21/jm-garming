@@ -21,3 +21,55 @@ title: "前端架构"
 ### Vite2+Vue3+TypeScript：搭建企业级轻量框架实践
 
 - https://juejin.cn/post/7052593172613955614#heading-19
+
+### 从 16 个方向逐步搭建基于 vue3 的前端架构
+
+- https://juejin.cn/post/7025524870842679310
+
+### 从 0 搭建 Vite + Vue3 + Element-Plus + Vue-Router + ESLint + husky + lint-staged
+
+- https://juejin.cn/post/6949138186886971429
+
+### vite2+vue3+vuex4+typescript4 项目实战来了
+
+- https://juejin.cn/post/6991405764275339295
+
+### Vue3 全家桶 + TS+ Vite2 + element-plus 搭建简洁时尚的博客网站实战及踩坑记
+
+- https://juejin.cn/post/6959174069577220110
+
+### 从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境
+
+- https://juejin.cn/post/6951649464637636622
+
+### 手把手 Vue3 项目（一）——安装配置 Vite + Vue3 + TypeScript + Ant-design-vue 项目
+
+- https://juejin.cn/post/7006640791539941407
+
+### vite 工程化实践，建议收藏
+
+- https://juejin.cn/post/6910014283707318279
+
+### 体验 vite + vue3 + ts 搭建项目的全过程
+
+- https://juejin.cn/post/6973288527802925092
+
+### 2021 必知必会的 vite+vue3 项目最佳实践
+
+- https://juejin.cn/post/6926822933721513998
+
+### Vite 打包项目
+
+- https://juejin.cn/post/6950203740737503240
+
+### Vite 2.0 配置总结
+
+- https://juejin.cn/post/6966538055738097677
+
+### 2021 年了，vite 能投入生产了吗？vite.config.js 配置踩坑
+
+- https://juejin.cn/post/6989475484551610381
+
+### Vite 开发快速入门
+
+- https://xiabing.blog.csdn.net/article/details/120312996
