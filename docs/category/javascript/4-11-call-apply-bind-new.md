@@ -241,6 +241,8 @@ console.log(new bound(2)); // original {name: 2}
 
 所以改造之前的 myBind
 
+> https://juejin.cn/post/6844903718089916429 这篇文章，我还是有点模糊不清楚
+
 ```js
 
 ```
