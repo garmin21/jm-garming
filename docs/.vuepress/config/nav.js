@@ -27,5 +27,5 @@ module.exports = [
             { text: '讯康检中系统分科管理', link: '/bug/bug-1/' },
         ] 
     },
-    { text: '有趣的文章', link: '/interesting.md', icon: 'reco-blog' }
+    { text: '随笔', link: '/article/', icon: 'reco-blog' }
 ]
