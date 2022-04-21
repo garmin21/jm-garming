@@ -15,7 +15,13 @@ module.exports = [
             { text: '前端架构', link: '/awesome/framework/' },
             { text: 'Typescript', link: '/awesome/typescript/' },
             { text: '知识库', link: '/awesome/knowledge-base/' },
-            { text: 'package', link: '/awesome/npm/' }
+            { 
+                text: 'package', 
+                link: '/awesome/npm/',
+                items: [
+                    { text: 'big.js', link: '/awesome/npm/big.js.md' },
+                ]
+            }
         ]
     },
     { text: '时间线', link: '/timeline/', icon: 'reco-date' },

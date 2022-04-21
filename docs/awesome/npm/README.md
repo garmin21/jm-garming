@@ -37,3 +37,8 @@ MonitorControl: 外接显示屏亮度调节神器: <a href="https://github.com/M
 ::: tip
 popper.js: 它将元素从文档中定位出来，并漂浮在任何 UI 元素上，适用于 工具提示，下拉列表，弹出框等应用场景: <a href="https://popper.js.org/docs/v2/">https://popper.js.org/docs/v2/</a>
 :::
+
+::: tip
+JavaScript 使用 CryptoJS 加解密: <a href="https://github.com/brix/crypto-js">https://github.com/brix/crypto-js</a>
+参考：<a href="https://devnote.pro/posts/10000051981222">https://devnote.pro/posts/10000051981222</a>
+:::
