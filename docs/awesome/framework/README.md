@@ -73,3 +73,7 @@ title: "前端架构"
 ### Vite 开发快速入门
 
 - https://xiabing.blog.csdn.net/article/details/120312996
+
+### 前端架构师破局技能，NodeJS 落地 WebSocket 实践
+
+- https://segmentfault.com/a/1190000041075299

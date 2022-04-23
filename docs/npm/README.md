@@ -38,3 +38,77 @@ popper.js: 它将元素从文档中定位出来，并漂浮在任何 UI 元素�
 JavaScript 使用 CryptoJS 加解密: <a href="https://github.com/brix/crypto-js">https://github.com/brix/crypto-js</a>
 参考：<a href="https://devnote.pro/posts/10000051981222">https://devnote.pro/posts/10000051981222</a>
 :::
+
+### NPM 库：dotenv，从文件加载环境变量
+
+- https://www.jianshu.com/p/ab7b106c3540
+- npm: https://www.npmjs.com/package/dotenv
+- 支持 ts
+
+### NPM 库：mitt，事件发布订阅器
+
+> 类似于 vue2 的 $on $once $emit
+
+- https://www.npmjs.com/package/mitt
+
+### 从一个记事本入门 node 脚手架开发
+
+- https://juejin.cn/post/6916424375734370317
+
+### 23 个非常有用的 NodeJs 库
+
+- https://segmentfault.com/a/1190000041458272
+
+### highlight.js 代码高亮
+
+1. 支持任何框架
+
+- 中文文档： https://fenxianglu.cn/highlight.html?theme=vs2015
+
+**使用**
+
+```js
+// vue 指令
+
+import Vue from "vue";
+import hljs from "highlight.js";
+
+Vue.directive("highlight", {
+  deep: true,
+  bind: highlight,
+  update: highlight,
+});
+
+function highlight(el, binding) {
+  if (el.tagName !== "CODE") {
+    let blocks = el.querySelectorAll("code");
+    blocks.forEach((block) => {
+      highlight(block, binding);
+    });
+  } else {
+    if (typeof binding.value === "string") {
+      el.textContent = binding.value;
+    }
+    // ?? language-markup 是什么鬼，注意⚠️
+    if (el.parentElement.className == "language-markup") {
+      el.parentElement.className = "language-html";
+    }
+    hljs.highlightBlock(el);
+  }
+}
+```
+
+```html
+<!-- vue component -->
+<div class="asw asw-about" v-highlight v-html="content"></div>
+```
+
+### wangEditor 富文本编辑器
+
+1. 支持 vue3
+2. 轻量，容易上手
+
+- github 地址: https://github.com/wangeditor-team/wangEditor-with-vue3
+- 文档地址: https://www.wangeditor.com/doc/
+
+<img :src="$withBase('/8.png')" width="100%" height="100%" alt="1" />
