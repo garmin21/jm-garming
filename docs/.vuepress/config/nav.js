@@ -33,6 +33,8 @@ module.exports = [
         icon: 'reco-npm',
         items: [
             { text: 'big.js', link: '/npm/big.js.md' },
+            { text: 'file-saver', link: '/npm/file-saver.md' },
+            { text: 'async-validator', link: '/npm/async-validator.md' },
         ]
     }
 ]

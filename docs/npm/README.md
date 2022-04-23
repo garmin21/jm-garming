@@ -15,10 +15,6 @@ zrender: 二维绘图引擎，它提供 Canvas、SVG、VML 等多种渲染方式
 :::
 
 ::: tip
-big.js: 一个用于任意精度十进制算法的小型快速 JavaScript 库。: <a href="https://github.com/garmin21/big.js">https://github.com/garmin21/big.js</a>
-:::
-
-::: tip
 awesome-f2e-libs 他人平常收藏的库: <a href="https://github.com/garmin21/awesome-f2e-libs#awesome-f2e-libs">https://github.com/garmin21/awesome-f2e-libs#awesome-f2e-libs</a>
 :::
 
