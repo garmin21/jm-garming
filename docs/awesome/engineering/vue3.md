@@ -1,11 +1,9 @@
 ---
-title: "Vue3"
+title: "vue3 API"
 date: 2022-4-23
 tags:
   - Vue3
 ---
-
-# vue3 API
 
 ## 常规
 
@@ -91,7 +89,58 @@ const asyncSelect = defineAsyncComponent(() => {
 
 > https://www.jianshu.com/p/7336055b0264
 
-::: tip
+### defineCustomElement()
+
+使用 vue 来构建 原生自定义元素
+
+## 引用
+
+### createApp()
+
+创建一个应用实例, 第一个参数是根组件。第二个参数可选，它是要传递给根组件的 props
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+
+const app = createApp(App);
+```
+
+### createSSRApp()
+
+创建一个 ssr 应用实例
+
+### app.mount()
+
+将应用程序实例挂载在一个容器元素中。
+
+### app.unmount()
+
+将一个应用实例卸载，会触发这个组件树上所有的 卸载 钩子
+
+### app.provide()
+
+注入，向当前 父级的 所有后代，注入 信息
+
+返回应用实例本身，说明可以链式调用
+
+### app.component()
+
+注册全局组件
+
+### app.directive()
+
+注册全局指令
+
+### app.use()
+
+安装一个插件
+
+### app.mixin()
+
+应用一个全局 mixin（适用于该应用程序的范围）
+
+<!-- ::: tip
 一个 Vue3 的 Starter，让丝滑快人一步: <a href="https://juejin.cn/post/7054757895853834276">https://juejin.cn/post/7054757895853834276</a>
 :::
 
@@ -113,4 +162,4 @@ Vue3 script setup 语法糖，超爽体验: <a href="https://www.cnblogs.com/bin
 
 ::: tip
 Vue2 快速掌握 Vue3 差异化: <a href="https://segmentfault.com/a/1190000041645889#comment-area">https://segmentfault.com/a/1190000041645889#comment-area</a>
-:::
+::: -->
