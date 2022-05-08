@@ -140,6 +140,69 @@ const app = createApp(App);
 
 应用一个全局 mixin（适用于该应用程序的范围）
 
+### app.version
+
+返回当前的版本
+
+### app.config
+
+返回当前的应用配置
+
+### app.config.errorHandler
+
+全局监听，应用发生的报错
+
+### app.config.warnHandler
+
+全局监听应用运行时的警告
+
+### app.config.performance
+
+将此设置为 true 在浏览器开发工具性能/时间线面板中启用组件初始化、编译、渲染和修补性能跟踪。仅适用于开发模式和支持 performance.mark API 的浏览器。
+
+### app.config.compilerOptions
+
+设置应用的自定义配置，会影响到整个应用程序中所有组件，组件自己也可以配置覆盖其配置
+
+### app.config.globalProperties
+
+注册全局属性的对象，可在应用程序内的任何组件实例上访问这些属性
+
+### app.config.optionMergeStrategies
+
+没搞懂
+
+## Composition API
+
+### setup 入口函数
+
+```js
+export default {
+  setup(props, { attrs, slots, emit, expose }) {
+    // props
+    // attrs 相当于 $attrs
+    // slots 相当于 $slots
+    // expose 属性公开，可以将当前组件实例上的属性，和方法，公开
+  },
+};
+```
+
+### 响应式工具
+
+#### isRef()
+
+判断是否是一个 ref
+
+#### unref()
+
+解构 ref , 如果是一个 ref 就得到 原始值，如果是 原始值 ，就返回 原始值
+
+### toRef(object, key, defaultValue)
+
+将对象的某一个 key 转为 ref, 也可以设置默认值
+
+###
+
 <!-- ::: tip
 一个 Vue3 的 Starter，让丝滑快人一步: <a href="https://juejin.cn/post/7054757895853834276">https://juejin.cn/post/7054757895853834276</a>
 :::
