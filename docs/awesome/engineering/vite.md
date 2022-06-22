@@ -58,3 +58,10 @@ title: "vite插件"
 ::: tip
 <a href="https://www.zhihu.com/answer/2277539792" target="_blank" >利用 vite 快速搭建一款自己的手脚架工具</a>
 :::
+
+### vite-plugin-style-import
+::: tip
+<a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >该插件可按需导入组件库样式</a>
+:::
+
+
