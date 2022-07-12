@@ -21,3 +21,8 @@ title: "有趣的文章"
 ### JavaScript Date Snippets: js 代码片段
 
 - https://www.30secondsofcode.org/js/t/date/p/1
+
+
+### 前端下载后台返回的文件流zip类型文件
+
+- https://blog.csdn.net/qq_32445707/article/details/122987527
