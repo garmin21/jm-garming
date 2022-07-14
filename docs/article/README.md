@@ -26,3 +26,13 @@ title: "有趣的文章"
 ### 前端下载后台返回的文件流zip类型文件
 
 - https://blog.csdn.net/qq_32445707/article/details/122987527
+
+
+### CSS实现自适应不同大小屏幕的背景大图
+
+- http://t.zoukankan.com/yueguanguanyun-p-7744594.html
+
+
+### 前端实现word、excel、pdf、ppt、mp4、图片、文本等文件的预览
+
+- https://juejin.cn/post/7071598747519549454#comment
