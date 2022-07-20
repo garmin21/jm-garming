@@ -20,11 +20,11 @@ module.exports = [
     },
     { text: '时间线', link: '/timeline/', icon: 'reco-date' },
     { 
-        text: 'BUG', 
+        text: '必知必会的package', 
         icon: 'reco-faq',
         ariaLabel: 'awesome Menu',
         items: [
-            { text: '讯康检中系统分科管理', link: '/bug/bug-1/' },
+            { text: '@vueuse/core', link: '/package/vueuse.md' },
         ] 
     },
     { 
@@ -35,6 +35,7 @@ module.exports = [
             { text: 'big.js', link: '/npm/big.js.md' },
             { text: 'file-saver', link: '/npm/file-saver.md' },
             { text: 'async-validator', link: '/npm/async-validator.md' },
+            { text: 'docx-preview', link: '/npm/docx-preview.md' },
         ]
     }
 ]

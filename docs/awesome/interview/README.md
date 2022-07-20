@@ -37,3 +37,20 @@ title: "面试"
 ### 前端面试准备的 50 道算法题上
 
 - https://juejin.cn/post/7080174781508616206
+
+
+### 如何让页面首次渲染不触发 watch ?
+
+```vue
+<script>
+export default {
+  mounted() {
+    this.$watch("info.observation_value", function () {
+      if (this.lijiaming_callback) {
+        this.lijiaming_callback({ union_id: this.union_id });
+      }
+    });
+  },
+};
+</script>
+```
