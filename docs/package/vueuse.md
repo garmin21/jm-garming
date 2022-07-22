@@ -29,4 +29,5 @@ title: "vueuse/core"
 - usePreferredDark 黑暗主题颜色查询
 - usePreferredLanguages 语言查询
 - useScreenOrientation 屏幕方向查询
+- useScreenSafeArea 
 - 

@@ -1,4 +1,12 @@
 module.exports = [
+    { 
+        text: '文章', 
+        ariaLabel: 'article Menu', 
+        icon: 'reco-coding', 
+        items: [
+            { text: 'web 摄像头', link: '/article/01.md' },
+        ]
+    },
     { text: 'Vue3', link: '/awesome/engineering/vue3.md', icon: 'reco-other' },
     { 
         text: '收藏', 
