@@ -61,3 +61,7 @@ Vue3 script setup 语法糖，超爽体验: <a href="https://www.cnblogs.com/bin
 ::: tip
 Vue2 快速掌握 Vue3 差异化: <a href="https://segmentfault.com/a/1190000041645889#comment-area">https://segmentfault.com/a/1190000041645889#comment-area</a>
 :::
+
+
+### Vue 使用 navigator.mediaDevices.getUserMedia 调用本地摄像头实现录像以及拍照功能
+- https://blog.csdn.net/XH_jing/article/details/117415496
