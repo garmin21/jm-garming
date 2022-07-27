@@ -47,12 +47,21 @@ title: "vite插件"
 
 - 将 markdown 文件转成 vue 组件 https://juejin.cn/post/6912362638454292494
 
-### vite-plugin-pages
+::: tip
+<a href="https://github.com/hannoeru/vite-plugin-pages#file-system-routing" target="_blank" >一个类似 nuxt.js 自动根据 pages 目录下文件 生成对应路由的 vite 插件</a>
+:::
 
-一个类似 nuxt.js 自动根据 pages 目录下文件 生成对应路由的 vite 插件
+::: tip
+<a href="https://juejin.cn/post/6993740289605124126" target="_blank" >vite-plugin 常用的插件</a>
+:::
 
-- https://github.com/hannoeru/vite-plugin-pages#file-system-routing
+::: tip
+<a href="https://www.zhihu.com/answer/2277539792" target="_blank" >利用 vite 快速搭建一款自己的手脚架工具</a>
+:::
 
-### vite-plugin 常用的插件
+### vite-plugin-style-import
+::: tip
+<a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >该插件可按需导入组件库样式</a>
+:::
 
-- https://juejin.cn/post/6993740289605124126
+
