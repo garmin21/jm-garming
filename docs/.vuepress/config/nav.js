@@ -16,7 +16,6 @@ module.exports = [
             { text: 'vite 工程化', link: '/awesome/engineering/vite.md' },
             { text: 'webpack 工程化', link: '/awesome/engineering/webpack.md' },
             { text: 'rollup 工程化', link: '/awesome/engineering/rollup.md' },
-            
             { text: '代码质量', link: '/awesome/code-quality/' },
             { text: '面试', link: '/awesome/interview/' },
             { text: '性能优化', link: '/awesome/lighthouse/' },
