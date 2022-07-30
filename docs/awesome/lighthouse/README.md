@@ -25,3 +25,11 @@ https://www.npmjs.com/package/lighthouse
 ### 前端遇到的那些技术难点及性能优化～
 
 - https://juejin.cn/post/6844904122747977741#comment
+
+### 当后端一次性丢给你10万条数据, 作为前端工程师的你,要怎么处理?
+
+- https://juejin.cn/post/6844904184689475592#heading-3
+
+### web性能优化的15条实用技巧
+
+- https://juejin.cn/post/6844903956590624782#heading-14
