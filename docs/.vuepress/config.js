@@ -13,7 +13,15 @@ module.exports = {
     lang: 'zh-CN',
     port: 9090,
     serviceWorker: true, // 是否开启 PWA
-    plugins: ['demo-container'], // 配置插件
+    plugins: [
+        'demo-container',
+        ["vuepress-plugin-nuggets-style-copy", {
+            copyText: "复制代码",
+            tip: {
+                content: "复制成功"
+            }
+        }]
+    ], // 配置插件
     themeConfig: {
         style: '@vuepress-reco/style-default',
         logo: '/jm.jpeg',
