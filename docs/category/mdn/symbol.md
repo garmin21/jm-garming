@@ -2,9 +2,9 @@
 title: 7-29 Symbol
 date: "2022-07-29"
 categories:
-  - javascript
+ - MDN
 tags:
-  - javascript
+ - MDN
 publish: true
 sticky: 1
 ---
