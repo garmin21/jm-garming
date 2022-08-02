@@ -30,4 +30,3 @@ title: "vueuse/core"
 - usePreferredLanguages 语言查询
 - useScreenOrientation 屏幕方向查询
 - useScreenSafeArea 
-- 
