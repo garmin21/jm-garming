@@ -7,7 +7,8 @@ module.exports = [
             { text: 'web 摄像头', link: '/article/01.md' },
             { text: '大数据量加载处理', link: '/article/02.md' },
             { text: '判断对象是否具有属性的 5 种方法', link: '/article/03.md' },
-            { text: '远程组件的研究分析', link: '/article/04.md' }
+            { text: '远程组件的研究分析', link: '/article/04.md' },
+            { text: '使用babel 操作 js 文件', link: '/article/05.md' }
         ]
     },
     { text: 'Vue3', link: '/awesome/engineering/vue3.md', icon: 'reco-other' },
