@@ -28,7 +28,7 @@ module.exports = [
             { text: '知识库', link: '/awesome/knowledge-base/' }
         ]
     },
-    { text: '时间线', link: '/timeline/', icon: 'reco-date' },
+    // { text: '时间线', link: '/timeline/', icon: 'reco-date' },
     { 
         text: 'npm', 
         link: '/npm/', 
@@ -38,7 +38,7 @@ module.exports = [
             { text: 'file-saver', link: '/npm/file-saver.md' },
             { text: 'async-validator', link: '/npm/async-validator.md' },
             { text: 'docx-preview', link: '/npm/docx-preview.md' },
-            { text: '@vueuse/core', link: '/npm/@vueuse/core.md' },
+            { text: '@vueuse/core', link: '/npm/@vueuse.md' },
         ]
     }
 ]
