@@ -64,4 +64,10 @@ title: "vite插件"
 <a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >该插件可按需导入组件库样式</a>
 :::
 
+### vite-plugin-dts
+
+::: tip
+<a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >用于把ts声明文件专门的打包出来</a>
+:::
+
 

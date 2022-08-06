@@ -77,3 +77,8 @@ title: "前端架构"
 ### 前端架构师破局技能，NodeJS 落地 WebSocket 实践
 
 - https://segmentfault.com/a/1190000041075299
+
+
+### 基于 Vite 搭建开发体验超级丝滑的 Vue3 组件库开发框架
+
+- https://segmentfault.com/a/1190000041103446
