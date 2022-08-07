@@ -40,6 +40,7 @@ module.exports = [
             { text: 'async-validator', link: '/npm/async-validator.md' },
             { text: 'docx-preview', link: '/npm/docx-preview.md' },
             { text: '@vueuse/core', link: '/npm/@vueuse.md' },
+            { text: 'jest', link: '/npm/jest.md' },
         ]
     }
 ]
