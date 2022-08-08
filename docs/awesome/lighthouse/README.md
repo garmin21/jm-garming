@@ -33,3 +33,8 @@ https://www.npmjs.com/package/lighthouse
 ### web性能优化的15条实用技巧
 
 - https://juejin.cn/post/6844903956590624782#heading-14
+
+
+### Vue 中使用 defineAsyncComponent(异步组件) 延迟加载组件
+
+- https://www.jianshu.com/p/ff9fde39e9b0
