@@ -6,7 +6,6 @@ categories:
 tags:
  - MDN
 publish: true
-sticky: 1
 ---
 
 ## 1. Object.getOwnPropertyDescriptors(Target.prototype);

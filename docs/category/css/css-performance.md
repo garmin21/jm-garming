@@ -6,7 +6,6 @@ categories:
 tags:
  - CSS
 publish: true
-sticky: 3
 ---
 
 
