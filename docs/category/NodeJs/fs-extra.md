@@ -6,7 +6,6 @@ categories:
 tags:
  - NodeJs
 publish: true
-sticky: 1
 ---
 
 fs-extra模块是系统fs模块的扩展，提供了更多便利的API，并继承了fs模块的API，本文详细介绍所有操作方法，方便读者更好的操作服务端文件

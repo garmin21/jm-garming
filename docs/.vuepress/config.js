@@ -16,9 +16,9 @@ module.exports = {
     plugins: [
         'demo-container',
         ["vuepress-plugin-nuggets-style-copy", {
-            copyText: "复制代码",
+            copyText: "copy",
             tip: {
-                content: "复制成功"
+                content: "sueecss"
             }
         }]
     ], // 配置插件
