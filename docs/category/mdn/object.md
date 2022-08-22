@@ -71,74 +71,71 @@ publish: true
 </body>
 ```
 
-
 ## 3. hasOwnProperty()
 
-Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。判断自身属性是否存在
-
+Object 的 hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。判断自身属性是否存在
 
 ## 4. isProtypeOf()
 
-isPrototypeOf() 方法用于测试一个对象是否存在于另一个对象的原型链上。  
+isPrototypeOf()  方法用于测试一个对象是否存在于另一个对象的原型链上。
 
 ```js
-let obj = {name : 'jkkkk'}
-let obj1 = {name: 'jvvvvv'}
+let obj = { name: "jkkkk" };
+let obj1 = { name: "jvvvvv" };
 
-obj.isPrototypeOf(obj1) // false
+obj.isPrototypeOf(obj1); // false
 //---------
 function Foo() {}
 function Bar() {}
 Bar.prototype = Object.create(Foo.prototype);
-
 ```
 
 ## 5. Object.preventExtensions() 防止扩展
 
-此方法可防止向现有对象添加新属性，preventExtensions() 是不可逆的操作，我们永远不能再向对象添加额外的属性。  
+此方法可防止向现有对象添加新属性，preventExtensions()  是不可逆的操作，我们永远不能再向对象添加额外的属性。
 
 ```js
 Object.isExtensible(myTesla); // true
 Object.preventExtensions(myTesla);
 Object.isExtensible(myTesla); // false
-myTesla.color = 'blue';
-console.log(myTesla.color) // undefined
+myTesla.color = "blue";
+console.log(myTesla.color); // undefined
 ```
 
 ## 6. Object.seal() 密封
 
-它可以防止添加或删除属性，seal() 还可以防止修改属性描述符。  
+它可以防止添加或删除属性，seal()  还可以防止修改属性描述符。
 
 ```js
 Object.isSealed(myTesla); // false
 Object.seal(myTesla);
 Object.isSealed(myTesla); // true
 
-myTesla.color = 'blue';
+myTesla.color = "blue";
 console.log(myTesla.color); // undefined
 
 delete myTesla.batteryLife; // false
 console.log(myTesla.batteryLife); // 300
 
-Object.defineProperty(myTesla, 'batteryLife'); // TypeError: Cannot redefine property: batteryLife
+Object.defineProperty(myTesla, "batteryLife"); // TypeError: Cannot redefine property: batteryLife
 ```
 
 ## 7. Object.freeze() 冻结
 
-它的作用与 Object.seal() 相同，而且它使属性不可写。
+它的作用与  Object.seal()  相同，而且它使属性不可写。
 
 ```js
 Object.isFrozen(myTesla); // false
 Object.freeze(myTesla);
 Object.isFrozen(myTesla); // true
 
-myTesla.color = 'blue';
+myTesla.color = "blue";
 console.log(myTesla.color); // undefined
 
 delete myTesla.batteryLife;
 console.log(myTesla.batteryLife); // 300
 
-Object.defineProperty(myTesla, 'batteryLife'); // TypeError: Cannot redefine property: batteryLife
+Object.defineProperty(myTesla, "batteryLife"); // TypeError: Cannot redefine property: batteryLife
 
 myTesla.batteryLife = 400;
 console.log(myTesla.batteryLife); // 300
