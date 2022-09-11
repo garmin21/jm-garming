@@ -27,3 +27,5 @@ git push -f https://github.com/garmin21/jm-garming.git garming21:gh-pages
 cd ..
 
 rm -rf dist
+
+exit 0
