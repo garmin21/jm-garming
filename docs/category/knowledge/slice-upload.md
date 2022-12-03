@@ -2,9 +2,9 @@
 title: 12-03 大文件分片上传
 date: "2022-12-03"
 categories:
-  - 见闻
+  - experience
 tags:
-  - 见闻
+  - experience
 publish: true
 ---
 
