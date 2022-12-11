@@ -1,8 +1,11 @@
 ---
-title: big.js
-date: 2022-4-21
+title: 12-11 big.js
+date: "2022-12-11"
+categories:
+  - npm
 tags:
   - npm
+publish: true
 ---
 
 ## 用法

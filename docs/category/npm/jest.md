@@ -1,45 +1,43 @@
 ---
-title: jest
-date: 2022-8-7
+title: 12-11 jest
+date: "2022-12-11"
+categories:
+  - npm
 tags:
   - npm
+publish: true
 ---
 
-###  1. 认识 jest
+### 1. 认识 jest
 
 jest 是一门 javascript 的 测试框架
 
-
 #### 1. 安装和使用 `npm install jest`
-
 
 #### 2. 新建一个与测试脚本相同的文件带后缀.test.js
 
-
-#### 3. 根据 jest 提供的api 编写测试用例
+#### 3. 根据 jest 提供的 api 编写测试用例
 
 ```js
-const { add } = require('./math')
-test ('加法测试',()=>{
-    expect(add(1,2)).toBe(3)
-})
+const { add } = require("./math");
+test("加法测试", () => {
+  expect(add(1, 2)).toBe(3);
+});
 ```
 
 ### 4. 使用 npm run jest 执行脚本
 
 ### 2. 手写一个模拟测试的函数
 
-
-
 ```js
 
 const test = (name, fn) => {
     try {
         fn();
-        console.log(`${name}通过`); 
+        console.log(`${name}通过`);
     }
     catch() {
-        console.log(`${desc}没有通过`);           
+        console.log(`${desc}没有通过`);
     }
 }
 

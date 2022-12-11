@@ -1,8 +1,11 @@
 ---
-title: babel
-date: 2022-11-16
+title: 12-11 babel
+date: "2022-12-11"
+categories:
+  - npm
 tags:
   - npm
+publish: true
 ---
 
 <img :src="$withBase('/WechatIMG70.jpeg')" width="width:100%" height="100%" />

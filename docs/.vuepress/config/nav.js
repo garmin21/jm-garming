@@ -17,19 +17,5 @@ module.exports = [
       { text: "知识库", link: "/awesome/knowledge-base/" },
     ],
   },
-  // { text: '时间线', link: '/timeline/', icon: 'reco-date' },
-  {
-    text: "npm",
-    link: "/npm/",
-    icon: "reco-npm",
-    items: [
-      { text: "big.js", link: "/npm/big.js.md" },
-      { text: "file-saver", link: "/npm/file-saver.md" },
-      { text: "async-validator", link: "/npm/async-validator.md" },
-      { text: "docx-preview", link: "/npm/docx-preview.md" },
-      { text: "@vueuse/core", link: "/npm/@vueuse.md" },
-      { text: "jest", link: "/npm/jest.md" },
-      { text: "babel", link: "/npm/babel.md" },
-    ],
-  },
+  { text: "时间线", link: "/timeline/", icon: "reco-date" },
 ];

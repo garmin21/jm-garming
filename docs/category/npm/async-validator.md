@@ -1,8 +1,11 @@
 ---
-title: async-validator
-date: 2022-4-23
+title: 12-11 async-validator
+date: "2022-12-11"
+categories:
+  - npm
 tags:
   - npm
+publish: true
 ---
 
 ### async-validator

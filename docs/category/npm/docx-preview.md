@@ -1,14 +1,16 @@
 ---
-title: docx-preview
-date: 2022-7-12
+title: 12-11 docx-preview
+date: "2022-12-11"
+categories:
+  - npm
 tags:
   - npm
+publish: true
 ---
 
 ### docx-preview
 
 预览 docx 文件
-
 
 #### API
 
@@ -37,30 +39,35 @@ renderAsync(
 #### 用法
 
 ```vue
-  <a-modal v-model:visible="visible" fullscreen :footer="false">
+<a-modal v-model:visible="visible" fullscreen :footer="false">
     <template #title> </template>
     <div ref="docxPreview"></div>
   </a-modal>
 ```
 
 ```ts
-import { renderAsync } from 'docx-preview';
-export function getReportPreview(order_id: string, action : 'preview' | 'down' = 'preview') {
-    return axios.post<null, HttpResponse<null>>(`/report/preview`, {
-        order_id,
-        action
-    }, {
-        responseType: 'blob'
-    })
+import { renderAsync } from "docx-preview";
+export function getReportPreview(
+  order_id: string,
+  action: "preview" | "down" = "preview"
+) {
+  return axios.post<null, HttpResponse<null>>(
+    `/report/preview`,
+    {
+      order_id,
+      action,
+    },
+    {
+      responseType: "blob",
+    }
+  );
 }
 
-
-  async function printPreview() {
-    props.setLoading(true);
-    const res = await getReportPreview(props.order_id);
-    props.setLoading(false);
-    visible.value = true;
-    docxPreview.value && (await renderAsync(res, docxPreview.value));
-  }
-
+async function printPreview() {
+  props.setLoading(true);
+  const res = await getReportPreview(props.order_id);
+  props.setLoading(false);
+  visible.value = true;
+  docxPreview.value && (await renderAsync(res, docxPreview.value));
+}
 ```
