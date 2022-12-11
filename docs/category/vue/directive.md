@@ -2,12 +2,11 @@
 title: 8-08 directive
 date: "2022-08-08"
 categories:
- - VUE
+  - vue
 tags:
- - VUE
+  - vue
 publish: true
 ---
-
 
 ### 1. vue2 指令介绍
 
@@ -29,8 +28,6 @@ binding：一个对象，包含以下 `property`：
 1. `v-copy="message"`, message 可以在 binding.value 中获取 指令的绑定值
 2. `v-copy:name="message"`, name 可以在 binding.arg 中获取 传给指令的参数
 3. `v-copy.stop="message"`, name 可以在 binding.modifiers 中获取 一个包含修饰符的对象
-
-
 
 ### 3. 实现一个 v-copy 指令，仅限平台 H5
 
@@ -73,9 +70,6 @@ const vCopy: DirectiveOptions = {
 
 export default vCopy;
 ```
-
-
-
 
 ### 4. v-dialogDrag element-ui 弹窗拖拽指令
 

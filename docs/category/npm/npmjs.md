@@ -2,11 +2,10 @@
 title: 12-11 npmJs
 date: "2022-12-11"
 categories:
-
-- npm
-  tags:
-- npm
-  publish: true
+  - npm
+tags:
+  - npm
+publish: true
 ---
 
 ### 1. 命令行

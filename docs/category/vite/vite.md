@@ -1,5 +1,11 @@
 ---
-title: "vite插件"
+title: 12-04 vite插件集合
+date: "2022-12-04"
+categories:
+  - Vite
+tags:
+  - Vite
+publish: true
 ---
 
 ### vite-plugin-eslint
@@ -60,6 +66,7 @@ title: "vite插件"
 :::
 
 ### vite-plugin-style-import
+
 ::: tip
 <a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >该插件可按需导入组件库样式</a>
 :::
@@ -67,7 +74,5 @@ title: "vite插件"
 ### vite-plugin-dts
 
 ::: tip
-<a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >用于把ts声明文件专门的打包出来</a>
+<a href="https://github.com/vbenjs/vite-plugin-style-import/blob/main/README.zh_CN.md" target="_blank" >用于把 ts 声明文件专门的打包出来</a>
 :::
-
-

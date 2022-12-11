@@ -1,8 +1,11 @@
 ---
-title: "vue3 API"
-date: 2022-4-23
+title: 12-11 vue3 API
+date: "2022-12-11"
+categories:
+  - vue
 tags:
-  - Vue3
+  - vue
+publish: true
 ---
 
 ## 常规
@@ -200,4 +203,3 @@ export default {
 ### toRef(object, key, defaultValue)
 
 将对象的某一个 key 转为 ref, 也可以设置默认值
-

@@ -2,9 +2,9 @@
 title: 12-04 vue.config.js 配置说明
 date: "2022-12-04"
 categories:
-  - VUE
+  - vue
 tags:
-  - VUE
+  - vue
 publish: true
 ---
 
