@@ -1,10 +1,10 @@
 ---
 title: 8-16 web Components
-date: "2022-08-16"
+date: '2022-08-16'
 categories:
-  - MDN
+    - javascript
 tags:
-  - MDN
+    - javascript
 publish: true
 ---
 
@@ -23,14 +23,14 @@ publish: true
 
 ```js
 class JmButton extends HTMLElement {
-  static get observedAttributes() {
-    return ["@click"];
-  }
+    static get observedAttributes() {
+        return ['@click']
+    }
 
-  constructor() {
-    super();
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.innerHTML = `
+    constructor() {
+        super()
+        const shadowRoot = this.attachShadow({ mode: 'open' })
+        shadowRoot.innerHTML = `
             <style>
                 .jm__button {
                     display: inline-block;
@@ -48,28 +48,28 @@ class JmButton extends HTMLElement {
                 }
             </style>
             <button class="jm__button">按钮</button>
-        `;
-  }
+        `
+    }
 
-  get handleClick() {
-    return this.getAttribute("@click");
-  }
+    get handleClick() {
+        return this.getAttribute('@click')
+    }
 
-  connectedCallback() {
-    this.addEventListener("click", function () {
-      console.log("this.addEventListener");
-    });
+    connectedCallback() {
+        this.addEventListener('click', function () {
+            console.log('this.addEventListener')
+        })
 
-    const btn = this.shadowRoot.querySelector(".jm__button");
+        const btn = this.shadowRoot.querySelector('.jm__button')
 
-    btn.addEventListener("click", function () {
-      console.log("btn.addEventListener");
-      console.log(this.handleClick);
-    });
-  }
+        btn.addEventListener('click', function () {
+            console.log('btn.addEventListener')
+            console.log(this.handleClick)
+        })
+    }
 }
 
-if (!customElements.get("jm-button")) {
-  customElements.define("jm-button", JmButton);
+if (!customElements.get('jm-button')) {
+    customElements.define('jm-button', JmButton)
 }
 ```
