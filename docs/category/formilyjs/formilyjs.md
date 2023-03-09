@@ -2,11 +2,15 @@
 title: 3-2 vite搭建 formilyjs 提供 可视化表单设计器
 date: '2023-03-02'
 categories:
-    - 架构
+    - formilyjs
 tags:
-    - 架构
+    - formilyjs
 publish: true
 ---
+
+## 简介
+
+Formily 是一个与框架无关的表单解决方案，使用了 JSON Schema，多端适配,目前社区已经有 React、Vue 方案，更是支持了众多流行前端框架如 ant、next、element、element-plus、antdv、vant、semi、tdesign-react 等。按照作者的说法是：定位是 面向复杂场景的表单解决方案， 面向企业级表单的专业解决方案
 
 ## 预览
 
