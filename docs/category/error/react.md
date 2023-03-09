@@ -2,9 +2,9 @@
 title: 3-09 记录报错信息1
 date: '2023-03-09'
 categories:
-    - React
+    - Error
 tags:
-    - React
+    - Error
 publish: true
 ---
 
