@@ -26,7 +26,8 @@ class LRUCache {
         if (this.data.size >= this.size) {
             // 一但超出内存大小，就删除一定等量的栈底数据
             // 删除最不常用数据
-            const firstKey = this.data.keys().next().value // 不必当心data为空，因为this.size 一般不会取0，满足this.data.size >= this.size时，this.data自然也不为空。
+            // 不必当心data为空，因为this.size 一般不会取0，满足this.data.size >= this.size时，this.data自然也不为空。
+            const firstKey = this.data.keys().next().value
             this.data.delete(firstKey)
         }
         this.data.set(domain, info) // 写入数据
