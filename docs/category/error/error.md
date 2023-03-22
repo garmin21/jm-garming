@@ -11,3 +11,16 @@ publish: true
 1. `prettier.config.js is treated as an ES module file as it is a .js file whose nearest parent package.json contains "type": "module" which declares all .js files in that package scope as ES modules.`
 
 因为你的项目被创建为 ES module。你可以看下 package.json，里面应该有 `type: module` 的项目。于是 .js 被默认为使用了 ES module 规范，如果自动生成的配置文件使用了 CommonJS，就会出错。.cjs 的 js 会告诉 node.js 它使用了 CommonJS 规范，所以就不会出错
+
+2. `vue3 拿不到 instance 暴露的方法`
+
+当我使用 call 将 this 绑定 外部的脚本，通过，`instance.setupState` 在开发环境可以拿到暴露的方法，在生产环境拿不到了
+
+解决：exposed 可以拿到
+
+```ts
+console.log(this)
+const { exposed } = <any>this
+if (!exposed) return
+const selectValue = exposed.getSelectionData()
+```
