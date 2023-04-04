@@ -24,3 +24,113 @@ const { exposed } = <any>this
 if (!exposed) return
 const selectValue = exposed.getSelectionData()
 ```
+
+3.  解决 eslint 报错 双引号问题
+
+解决：在根目录下的 .eslintrc.js 文件加个配置：
+
+```js
+'prettier/prettier': [
+    'warn',
+     {
+        singleQuote: true
+     }
+ ]
+```
+
+---
+
+4.  找不到模块“xxx”或其相应的类型声明
+
+解决：在 tsconfig 中 新增
+
+```ts
+{
+    "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
+    "paths": { // 路径映射，相对于baseUrl
+        "@": ["src"],
+        "@/*": ["src/*"]
+    }
+}
+```
+
+---
+
+5. `Error: ESLint configuration in .eslintrc.cjs is invalid: - Unexpected top-level property "prettier/prettier".`
+
+解决：在.eslintrc.js 中配置
+
+```js
+"rules": {
+    "prettier/prettier": [
+        "off",
+        {
+            "singleQuote": true,
+            "parser": "flow"
+        }
+    ]
+}
+```
+
+---
+
+6. `Vue组件命名报错 “Component name “XXX“ should always be multi-word”`
+
+解决：在.eslintrc.js 中配置
+
+```js
+"rules": {
+    "vue/multi-word-component-names":"off", // 关闭组件命名规则
+}
+```
+
+---
+
+7. `Runtime directive used on component with non-element root node. The directives will not function as intended. `
+
+意思是对于运行时指令，不能放在非元素上，比如自定义组件
+
+解决：
+
+```vue
+<div v-show="xxxx">
+    <svg-icon></svg-icon>
+</div>
+```
+
+---
+
+8. `Component inside <Transition> renders non-element root node that cannot be animated.`
+
+＜ Transition ＞中的组件渲染无法 设置动画的非元素根节点。
+
+意思就是说，如果 Transition 包裹的元素设置了动画，就必须加上一层根节点
+
+解决：
+
+```html
+<Transition name="fade">
+    <div>
+        <el-dialog
+            draggable
+            :model-value="show"
+            width="750px"
+            :show-close="false"
+            :close-on-click-modal="false"
+            :before-close="handleClose"
+            class="login-dialog-box"
+        >
+        </el-dialog>
+    </div>
+</Transition>
+```
+
+---
+
+9.  `vuedraggable Cannot read properties of undefined (reading 'header')`
+
+vue3.0 使用低版本的 vuedraggable 所以需要安装高版本的包
+
+`pnpm i vue-draggable-next`
+
+---
