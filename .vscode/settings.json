@@ -13,6 +13,7 @@
         "tsup",
         "typeof",
         "Uncapitalize",
+        "unplugin",
         "vite",
         "vuepress",
         "webp",
