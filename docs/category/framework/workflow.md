@@ -1,20 +1,20 @@
 ---
 title: 10-26 构建代码检查工作流
-date: "2022-10-26"
+date: '2022-10-26'
 categories:
-  - 架构
+    - 工程化
 tags:
-  - 架构
+    - 工程化
 publish: true
 ---
 
-- 工程化体现之一：代码规范和提交规范。
-  1. 选择 eslint，保证代码质量，避免不规范代码书写，包括冗余命名，无效声明等
-  2. 选择 prettier，保证代码风格，避免团队合作由于风格不同造成的合并冲突
-  3. 选择 husky，允许开发人员参与 git 流程操作中，触发指定 hook
-  4. 选择 commitizen，保证代码提交规范同时记录更新内容，后续可生成 changelog
-  5. 选择 commitlint，代码提交检查，保证提交内容符合规范
-  6. 选择 lint-staged，一个仅仅过滤出 Git 代码暂存区文件(被 git add 的文件)的工具做指定操作，减少每次对整个项目都重新检查造成的时间损耗(在 package.json 中配置，也可抽成.lintstagedrc 文件中)
+-   工程化体现之一：代码规范和提交规范。
+    1. 选择 eslint，保证代码质量，避免不规范代码书写，包括冗余命名，无效声明等
+    2. 选择 prettier，保证代码风格，避免团队合作由于风格不同造成的合并冲突
+    3. 选择 husky，允许开发人员参与 git 流程操作中，触发指定 hook
+    4. 选择 commitizen，保证代码提交规范同时记录更新内容，后续可生成 changelog
+    5. 选择 commitlint，代码提交检查，保证提交内容符合规范
+    6. 选择 lint-staged，一个仅仅过滤出 Git 代码暂存区文件(被 git add 的文件)的工具做指定操作，减少每次对整个项目都重新检查造成的时间损耗(在 package.json 中配置，也可抽成.lintstagedrc 文件中)
 
 ### eslint
 
@@ -29,28 +29,28 @@ eslint 初始化会在项目根目录下生成.eslintrc.cjs 文件并提供默�
 
 ```cjs
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    none: true,
-  },
-  extends: [
-    "eslint:recommended",
-    "plugin:vue/vue3-essential",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "@vue/eslint-config-prettier",
-  ],
-  overrides: [],
-  parser: "vue-eslint-parser", // 改成这样
-  parserOptions: {
-    ecmaVersion: "latest",
-    parser: "@typescript-eslint/parser", // 改成这样
-    sourceType: "module",
-  },
-  plugins: ["vue", "@typescript-eslint"],
-  rules: {},
-};
+    env: {
+        browser: true,
+        es2021: true,
+        none: true,
+    },
+    extends: [
+        'eslint:recommended',
+        'plugin:vue/vue3-essential',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+        '@vue/eslint-config-prettier',
+    ],
+    overrides: [],
+    parser: 'vue-eslint-parser', // 改成这样
+    parserOptions: {
+        ecmaVersion: 'latest',
+        parser: '@typescript-eslint/parser', // 改成这样
+        sourceType: 'module',
+    },
+    plugins: ['vue', '@typescript-eslint'],
+    rules: {},
+}
 ```
 
 3. package.json 中添加 一条 "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src", (命令还是得去看文档) 这条命令的意思是 使用 eslint 检查 .vue 或 .js 后缀的文件，并指定忽略文件.gitignore ，并开启自动修复
@@ -97,8 +97,8 @@ package.json
 
 配置 husky 可以看这个
 
-- https://blog.csdn.net/weixin_41897680/article/details/125233875
-- https://zhuanlan.zhihu.com/p/471039163
+-   https://blog.csdn.net/weixin_41897680/article/details/125233875
+-   https://zhuanlan.zhihu.com/p/471039163
 
 生成 commit-msg 执行 `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'`
 
@@ -116,9 +116,9 @@ lint-staged 就是用来控制只检测暂存区代码的工具库。
 
 ```cjs
 module.exports = {
-  "src/**/*.{vue,js,ts}": "eslint --cache --fix",
-  "src/**/*.{vue,js,ts, css}": "prettier --write",
-};
+    'src/**/*.{vue,js,ts}': 'eslint --cache --fix',
+    'src/**/*.{vue,js,ts, css}': 'prettier --write',
+}
 ```
 
 更新 `.husky/pre-commit` 添加 `npx lint-staged`
@@ -133,28 +133,28 @@ module.exports = {
 
 ```cjs
 module.exports = {
-  extends: ["@commitlint/config-conventional"],
-  rules: {
-    "body-leading-blank": [2, "always"], // body 开始于空白行
-    "header-max-length": [2, "always", 72], // header 字符最大长度为 72
-    "subject-full-stop": [0, "never"], // subject 结尾不加 '.'
-    "type-empty": [2, "never"], // type 不为空
-    "type-enum": [
-      2,
-      "always",
-      [
-        "feat", // 新特性、需求
-        "fix", // bug 修复
-        "docs", // 文档内容改动
-        "style", // 不影响代码含义的改动，例如去掉空格、改变缩进、增删分号
-        "refactor", // 代码重构
-        "test", // 添加或修改测试
-        "chore", // 不修改 src 或者 test 的其余修改，例如构建过程或辅助工具的变动
-        "revert", // 执行 git revert 打印的 message
-      ],
-    ],
-  },
-};
+    extends: ['@commitlint/config-conventional'],
+    rules: {
+        'body-leading-blank': [2, 'always'], // body 开始于空白行
+        'header-max-length': [2, 'always', 72], // header 字符最大长度为 72
+        'subject-full-stop': [0, 'never'], // subject 结尾不加 '.'
+        'type-empty': [2, 'never'], // type 不为空
+        'type-enum': [
+            2,
+            'always',
+            [
+                'feat', // 新特性、需求
+                'fix', // bug 修复
+                'docs', // 文档内容改动
+                'style', // 不影响代码含义的改动，例如去掉空格、改变缩进、增删分号
+                'refactor', // 代码重构
+                'test', // 添加或修改测试
+                'chore', // 不修改 src 或者 test 的其余修改，例如构建过程或辅助工具的变动
+                'revert', // 执行 git revert 打印的 message
+            ],
+        ],
+    },
+}
 ```
 
 生成 commit-msg 执行 `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'`
@@ -175,84 +175,84 @@ git-cz 有两种使用方式分为 `全局安装 `和 `项目中使用` 二者�
 // 参考文档：https://www.npmjs.com/package/git-cz
 
 module.exports = {
-  disableEmoji: false,
-  // format: '{type}{scope}: {emoji}{subject}',
-  list: [
-    "test",
-    "feat",
-    "fix",
-    "chore",
-    "docs",
-    "refactor",
-    "style",
-    "ci",
-    "perf",
-  ],
-  maxMessageLength: 64,
-  minMessageLength: 3,
-  questions: [
-    "type",
-    "scope",
-    "subject",
-    "body",
-    "breaking",
-    "issues",
-    "lerna",
-  ],
-  scopes: [],
-  types: {
-    chore: {
-      description: "一些与主要业务无关的构建/工程依赖/工具等功能改动",
-      emoji: "🤖",
-      value: "chore",
+    disableEmoji: false,
+    // format: '{type}{scope}: {emoji}{subject}',
+    list: [
+        'test',
+        'feat',
+        'fix',
+        'chore',
+        'docs',
+        'refactor',
+        'style',
+        'ci',
+        'perf',
+    ],
+    maxMessageLength: 64,
+    minMessageLength: 3,
+    questions: [
+        'type',
+        'scope',
+        'subject',
+        'body',
+        'breaking',
+        'issues',
+        'lerna',
+    ],
+    scopes: [],
+    types: {
+        chore: {
+            description: '一些与主要业务无关的构建/工程依赖/工具等功能改动',
+            emoji: '🤖',
+            value: 'chore',
+        },
+        ci: {
+            description: 'CI related changes',
+            emoji: '🎡',
+            value: 'ci',
+        },
+        docs: {
+            description: '文档更新(如：README)',
+            emoji: '✏️',
+            value: 'docs',
+        },
+        feat: {
+            description: '新的特性',
+            emoji: '🎸',
+            value: 'feat',
+        },
+        fix: {
+            description: 'bug 修复',
+            emoji: '🐛',
+            value: 'fix',
+        },
+        perf: {
+            description: '优化了性能的代码改动',
+            emoji: '⚡️',
+            value: 'perf',
+        },
+        refactor: {
+            description: '一些代码结构上优化，既不是新特性也不是修 Bug',
+            emoji: '💡',
+            value: 'refactor',
+        },
+        release: {
+            description: 'Create a release commit',
+            emoji: '🏹',
+            value: 'release',
+        },
+        style: {
+            description: '代码的样式美化，不涉及到功能修改等',
+            emoji: '💄',
+            value: 'style',
+        },
+        test: {
+            description: '新增或修改已有的测试代码',
+            emoji: '💍',
+            value: 'test',
+        },
     },
-    ci: {
-      description: "CI related changes",
-      emoji: "🎡",
-      value: "ci",
-    },
-    docs: {
-      description: "文档更新(如：README)",
-      emoji: "✏️",
-      value: "docs",
-    },
-    feat: {
-      description: "新的特性",
-      emoji: "🎸",
-      value: "feat",
-    },
-    fix: {
-      description: "bug 修复",
-      emoji: "🐛",
-      value: "fix",
-    },
-    perf: {
-      description: "优化了性能的代码改动",
-      emoji: "⚡️",
-      value: "perf",
-    },
-    refactor: {
-      description: "一些代码结构上优化，既不是新特性也不是修 Bug",
-      emoji: "💡",
-      value: "refactor",
-    },
-    release: {
-      description: "Create a release commit",
-      emoji: "🏹",
-      value: "release",
-    },
-    style: {
-      description: "代码的样式美化，不涉及到功能修改等",
-      emoji: "💄",
-      value: "style",
-    },
-    test: {
-      description: "新增或修改已有的测试代码",
-      emoji: "💍",
-      value: "test",
-    },
-  },
-};
+}
 ```
 
 #### 项目中使用
@@ -263,14 +263,14 @@ commitizen 安装配置 git-cz : `commitizen init git-cz --save-dev --save-exact
 
 ```json
 {
-  "devDependencies": {
-    "git-cz": "^4.8.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/git-cz"
+    "devDependencies": {
+        "git-cz": "^4.8.0"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/git-cz"
+        }
     }
-  }
 }
 ```
 
@@ -278,11 +278,11 @@ commitizen 安装配置 git-cz : `commitizen init git-cz --save-dev --save-exact
 
 掉坑 1 : `prettier.config.js is treated as an ES module file as it is a .js file whose nearest parent package.json contains "type": "module" which declares all .js files in that package scope as ES modules.`
 
-- https://segmentfault.com/q/1010000042298464/a-1020000042301395
+-   https://segmentfault.com/q/1010000042298464/a-1020000042301395
 
 设置了"type": "module" 后你的所有 js 文件默认使用 ESM 模块规范，不支持 commonjs 规范，所以必须显式的声明成 xxx.cjs 才能标识这个是用 commonjs 规范的，
 
-- 工作流参考
+-   工作流参考
 
 1. https://juejin.cn/post/7156872217027067941 (vue)
 2. https://juejin.cn/post/7147369225777053727 (react)

@@ -1,10 +1,10 @@
 ---
 title: 11-05 从0到1搭建微服务架构
-date: "2022-11-05"
+date: '2022-11-05'
 categories:
-  - 架构
+    - 工程化
 tags:
-  - 架构
+    - 工程化
 publish: true
 ---
 
@@ -14,6 +14,6 @@ publish: true
 
 ## 认识 API
 
-- System.import('url')
+-   System.import('url')
 
 动态加载，模块，内部会自动的去寻找`<script type="systemjs-importmap"></script>` 中的依赖，并下载下来
