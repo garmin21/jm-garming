@@ -1,5 +1,5 @@
 ---
-title: 3-20 LRU缓存机制算法
+title: LRU缓存机制算法
 date: '2023-03-20'
 categories:
     - Algorithm
