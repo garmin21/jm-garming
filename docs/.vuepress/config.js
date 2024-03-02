@@ -1,5 +1,5 @@
 const nav = require('./config/nav')
-const isDev = () => process.env.NODE_ENV === 'development';
+const isDev = () => process.env.NODE_ENV === 'development'
 
 module.exports = {
     theme: 'reco',
@@ -8,45 +8,55 @@ module.exports = {
     description: 'garming个人博客',
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
-        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+        [
+            'meta',
+            {
+                name: 'viewport',
+                content: 'width=device-width,initial-scale=1,user-scalable=no',
+            },
+        ],
     ],
     lang: 'zh-CN',
     port: 9090,
     serviceWorker: true, // 是否开启 PWA
     plugins: [
         'demo-container',
-        ["vuepress-plugin-nuggets-style-copy", {
-            copyText: "copy",
-            tip: {
-                content: "sueecss"
-            }
-        }]
+        [
+            'vuepress-plugin-nuggets-style-copy',
+            {
+                copyText: 'copy',
+                tip: {
+                    content: 'sueecss',
+                },
+            },
+        ],
     ], // 配置插件
     themeConfig: {
         style: '@vuepress-reco/style-default',
         logo: '/jm.jpeg',
         logoTitle: 'Garming',
         markdown: {
-            lineNumbers: true
+            lineNumbers: true,
         },
         author: 'garMing',
         lastUpdated: true,
         lastUpdated: '上次更新', // string | boolean
         sidebarDepth: 2, // 侧边栏显示2级
-        type: "blog",
+        type: 'blog',
         searchMaxSuggestions: 5,
-        sidebar: "auto",
+        sidebar: 'auto',
         blogConfig: {
-            "category": {
-              "location": 2,
-              "text": "F2E基础"
+            category: {
+                location: 2,
+                text: 'F2E基础',
             },
-            socialLinks: [     // 信息栏展示社交信息
+            socialLinks: [
+                // 信息栏展示社交信息
                 { icon: 'reco-github', link: 'https://github.com/garmin21' },
-                { icon: 'reco-npm', link: 'https://www.npmjs.com/~garming21' }
-            ]
+                { icon: 'reco-npm', link: 'https://www.npmjs.com/~garming21' },
+                { icon: 'reco-npm', link: 'https://www.cnblogs.com/ifon/' },
+            ],
         },
-        nav
-    }
-}  
-  
+        nav,
+    },
+}
