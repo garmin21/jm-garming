@@ -210,3 +210,11 @@ console.log(array1.fill(9, -3, -1)) // [1, 9, 9, 4]
 
 console.log(array1.fill(9, -1)) // [1, 2, 3, 9]
 ```
+
+### includes 用于判断一个数组是否包含某个指定的元素，并返回布尔值。
+
+```js
+let arr = [1, 2, 3, 4, 6]
+console.log(arr.includes(5)) //false
+console.log(arr.includes(6)) //true
+```
