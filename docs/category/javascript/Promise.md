@@ -1,6 +1,6 @@
 ---
-title: 4-20 Promise
-date: "2022-04-20"
+title: Promise
+date: '2022-04-20'
 categories:
   - javascript
 tags:
@@ -11,15 +11,14 @@ publish: true
 ## 什么是 Promise
 
 Promise 是异步编程的一种解决方案：
-从语法上讲，promise是一个对象，从它可以获取异步操作的消息；从本意上讲，它是承诺，承诺它过一段时间会给你一个结果。
-promise有三种状态：pending(等待态)，fulfiled(成功态)，rejected(失败态)；状态一旦改变，就不会再变。创造promise实例后，它会立即执行
+从语法上讲，promise 是一个对象，从它可以获取异步操作的消息；从本意上讲，它是承诺，承诺它过一段时间会给你一个结果。
+promise 有三种状态：pending(等待态)，fulfiled(成功态)，rejected(失败态)；状态一旦改变，就不会再变。创造 promise 实例后，它会立即执行
 
 ## Promise 解决了什么问题
 
 我们来看一张图片：
 
 <img :src="$withBase('/6.webp')" width="100%" height="100%" alt="1" />
-
 
 1. 回调地狱，代码难以维护， 常常第一个的函数的输出是第二个函数的输入这种现象
 2. 代码的可读性的问题
@@ -34,13 +33,13 @@ promise有三种状态：pending(等待态)，fulfiled(成功态)，rejected(失
 then() 方法返回一个 Promise 。它最多需要有两个参数：Promise 的成功和失败情况的回调函数 `p.then(onFulfilled[, onRejected]);`。
 
 **then 返回值的特点**
+
 1. 返回了一个值，那么 then 返回的 Promise 将会成为接受状态，并且将返回的值作为接受状态的回调函数的参数值。
 2. 没有返回任何值，那么 then 返回的 Promise 将会成为接受状态，并且该接受状态的回调函数的参数值为 undefined。
 3. 抛出一个错误，那么 then 返回的 Promise 将会成为拒绝状态，并且将抛出的错误作为拒绝状态的回调函数的参数值。
 4. 返回一个已经是接受状态的 Promise，那么 下一个 Promise 的接受状态的回调函数的参数值是接受状态参数值。
 5. 返回一个已经是拒绝状态的 Promise，那么 下一个 Promise 的拒绝状态的回调函数的参数值是接受拒绝参数值。
 6. 返回一个未定状态（pending）的 Promise，那么 then 返回 Promise 的状态也是未定的
-
 
 ## 手写一个 JmPromise
 
@@ -56,34 +55,34 @@ then() 方法返回一个 Promise 。它最多需要有两个参数：Promise �
 
 ```ts
 class JmPromise {
-  public status: "pending" | "fulfilled" | "rejected" = "pending";
-  public value: any;
+  public status: 'pending' | 'fulfilled' | 'rejected' = 'pending'
+  public value: any
 
   constructor(func: (reslove: Function, reject: Function) => void) {
-    func(this.reslove.bind(this), this.reject.bind(this));
+    func(this.reslove.bind(this), this.reject.bind(this))
   }
 
   public reslove(value: any) {
-    if (this.status === "pending") {
-      this.status = "fulfilled";
-      this.value = value;
+    if (this.status === 'pending') {
+      this.status = 'fulfilled'
+      this.value = value
     }
   }
 
   public reject(value: any) {
-    if (this.status === "pending") {
-      this.status = "rejected";
-      this.value = value;
+    if (this.status === 'pending') {
+      this.status = 'rejected'
+      this.value = value
     }
   }
 }
 
 const jmPromise = new JmPromise((reslove, reject) => {
-  console.log("同步代码");
-  reslove(123);
-});
+  console.log('同步代码')
+  reslove(123)
+})
 
-console.log("外部作用域代码’", jmPromise);
+console.log('外部作用域代码’', jmPromise)
 ```
 
 ### 2. then 方法的实现
@@ -107,134 +106,134 @@ console.log("外部作用域代码’", jmPromise);
 // 完整的then 方法实现
 
 interface AsyncCallback {
-  [key: string]: Function;
+  [key: string]: Function
 }
 
 class JmPromise {
-  public status: "pending" | "fulfilled" | "rejected" = "pending";
-  public value: any;
-  public asyncCallback: AsyncCallback = {};
+  public status: 'pending' | 'fulfilled' | 'rejected' = 'pending'
+  public value: any
+  public asyncCallback: AsyncCallback = {}
 
   constructor(func: (reslove: Function, reject: Function) => void) {
-    const newReslove = this.reslove.bind(this);
-    const newReject = this.reject.bind(this);
+    const newReslove = this.reslove.bind(this)
+    const newReject = this.reject.bind(this)
     try {
       // try 无法捕获到异常有哪些： https://zhuanlan.zhihu.com/p/347756673
-      func(newReslove, newReject);
+      func(newReslove, newReject)
     } catch (error) {
-      this.reject(error);
+      this.reject(error)
     }
   }
 
   public reslove(value: any) {
-    if (this.status === "pending") {
-      this.status = "fulfilled";
-      this.value = value;
-      if (this.asyncCallback["resloveFunc"]) {
-        this.asyncCallback["resloveFunc"](this.value);
+    if (this.status === 'pending') {
+      this.status = 'fulfilled'
+      this.value = value
+      if (this.asyncCallback['resloveFunc']) {
+        this.asyncCallback['resloveFunc'](this.value)
       }
     }
   }
 
   public reject(value: any) {
-    if (this.status === "pending") {
-      this.status = "rejected";
-      this.value = value;
-      if (this.asyncCallback["rejectFunc"]) {
-        this.asyncCallback["rejectFunc"](this.value);
+    if (this.status === 'pending') {
+      this.status = 'rejected'
+      this.value = value
+      if (this.asyncCallback['rejectFunc']) {
+        this.asyncCallback['rejectFunc'](this.value)
       }
     }
   }
 
   public then(resloveFunc: Function, rejectFunc: Function) {
-    const value = this.value;
-    const status = this.status;
-    if (status === "fulfilled") {
+    const value = this.value
+    const status = this.status
+    if (status === 'fulfilled') {
       return new JmPromise((reslove, reject) => {
         try {
-          const result = resloveFunc(value);
+          const result = resloveFunc(value)
           if (result instanceof JmPromise) {
-            result.then(reslove, reject);
+            result.then(reslove, reject)
           } else {
-            reslove(result);
+            reslove(result)
           }
         } catch (error) {
-          reject(error);
+          reject(error)
         }
-      });
+      })
     }
 
-    if (status === "rejected") {
+    if (status === 'rejected') {
       return new JmPromise((reslove, reject) => {
         try {
-          const result = rejectFunc(value);
+          const result = rejectFunc(value)
           if (result instanceof JmPromise) {
-            result.then(reslove, reject);
+            result.then(reslove, reject)
           } else {
-            reslove(result);
+            reslove(result)
           }
         } catch (error) {
-          reject(error);
+          reject(error)
         }
-      });
+      })
     }
 
-    if (status === "pending") {
+    if (status === 'pending') {
       // 需要把异步回调填充到 asyncCallback 中
       return new JmPromise((reslove, reject) => {
-        this.asyncCallback["resloveFunc"] = (value) => {
+        this.asyncCallback['resloveFunc'] = (value) => {
           try {
-            const result = resloveFunc(value);
+            const result = resloveFunc(value)
             if (result instanceof JmPromise) {
-              result.then(reslove, reject);
+              result.then(reslove, reject)
             } else {
-              reslove(result);
+              reslove(result)
             }
           } catch (error) {
-            reject(error);
+            reject(error)
           }
-        };
-        this.asyncCallback["rejectFunc"] = (value) => {
+        }
+        this.asyncCallback['rejectFunc'] = (value) => {
           try {
-            const result = rejectFunc(value);
+            const result = rejectFunc(value)
             if (result instanceof JmPromise) {
-              result.then(reslove, reject);
+              result.then(reslove, reject)
             } else {
-              reslove(result);
+              reslove(result)
             }
           } catch (error) {
-            reject(error);
+            reject(error)
           }
-        };
-      });
+        }
+      })
     }
   }
 }
 
 const jmPromise = new JmPromise((reslove, reject) => {
   setTimeout(() => {
-    reject(122);
-  }, 2000);
-});
+    reject(122)
+  }, 2000)
+})
 
 jmPromise
   .then(
     (value) => {
-      console.log("成功", value);
+      console.log('成功', value)
     },
     (value) => {
-      console.log("失败", value);
-      return 9527;
+      console.log('失败', value)
+      return 9527
     }
   )
   .then(
     (value) => {
-      console.log("成功2", value);
+      console.log('成功2', value)
     },
     (value) => {
-      console.log("失败2", value);
+      console.log('失败2', value)
     }
-  );
+  )
 ```
 
 ### 3. 优化 then 方法
@@ -242,141 +241,141 @@ jmPromise
 抽离复用逻辑
 
 ```ts
-document.body.innerHTML = "<h1>自定义promise</h1>";
+document.body.innerHTML = '<h1>自定义promise</h1>'
 
 interface AsyncCallback {
-  [key: string]: Function;
+  [key: string]: Function
 }
 
 interface ReusingOption {
-  func: Function;
-  value: any;
-  reslove: Function;
-  reject: Function;
+  func: Function
+  value: any
+  reslove: Function
+  reject: Function
 }
 
 class JmPromise {
-  public status: "pending" | "fulfilled" | "rejected" = "pending";
-  public value: any;
-  public asyncCallback: AsyncCallback = {};
+  public status: 'pending' | 'fulfilled' | 'rejected' = 'pending'
+  public value: any
+  public asyncCallback: AsyncCallback = {}
 
   constructor(func: (reslove: Function, reject: Function) => void) {
-    const newReslove = this.reslove.bind(this);
-    const newReject = this.reject.bind(this);
+    const newReslove = this.reslove.bind(this)
+    const newReject = this.reject.bind(this)
     try {
       // try 无法捕获到异常有哪些： https://zhuanlan.zhihu.com/p/347756673
-      func(newReslove, newReject);
+      func(newReslove, newReject)
     } catch (error) {
-      this.reject(error);
+      this.reject(error)
     }
   }
 
   public reslove(value: any) {
-    if (this.status === "pending") {
-      this.status = "fulfilled";
-      this.value = value;
-      if (this.asyncCallback["resloveFunc"]) {
-        this.asyncCallback["resloveFunc"](this.value);
+    if (this.status === 'pending') {
+      this.status = 'fulfilled'
+      this.value = value
+      if (this.asyncCallback['resloveFunc']) {
+        this.asyncCallback['resloveFunc'](this.value)
       }
     }
   }
 
   public reject(value: any) {
-    if (this.status === "pending") {
-      this.status = "rejected";
-      this.value = value;
-      if (this.asyncCallback["rejectFunc"]) {
-        this.asyncCallback["rejectFunc"](this.value);
+    if (this.status === 'pending') {
+      this.status = 'rejected'
+      this.value = value
+      if (this.asyncCallback['rejectFunc']) {
+        this.asyncCallback['rejectFunc'](this.value)
       }
     }
   }
 
   public then(resloveFunc: Function, rejectFunc: Function) {
-    const value = this.value;
-    const status = this.status;
-    if (status === "fulfilled") {
+    const value = this.value
+    const status = this.status
+    if (status === 'fulfilled') {
       return new JmPromise((reslove, reject) => {
         this.reusing({
           reslove,
           reject,
           value,
           func: resloveFunc,
-        });
-      });
+        })
+      })
     }
 
-    if (status === "rejected") {
+    if (status === 'rejected') {
       return new JmPromise((reslove, reject) => {
         this.reusing({
           reslove,
           reject,
           value,
           func: rejectFunc,
-        });
-      });
+        })
+      })
     }
 
-    if (status === "pending") {
+    if (status === 'pending') {
       // 需要把异步回调填充到 asyncCallback 中
       return new JmPromise((reslove, reject) => {
-        this.asyncCallback["resloveFunc"] = (value) => {
+        this.asyncCallback['resloveFunc'] = (value) => {
           this.reusing({
             reslove,
             reject,
             value,
             func: resloveFunc,
-          });
-        };
-        this.asyncCallback["rejectFunc"] = (value) => {
+          })
+        }
+        this.asyncCallback['rejectFunc'] = (value) => {
           this.reusing({
             reslove,
             reject,
             value,
             func: rejectFunc,
-          });
-        };
-      });
+          })
+        }
+      })
     }
   }
 
   // 抽离复用逻辑
   public reusing(options: ReusingOption) {
     try {
-      const result = options.func(options.value);
+      const result = options.func(options.value)
       if (result instanceof JmPromise) {
-        result.then(options.reslove, options.reject);
+        result.then(options.reslove, options.reject)
       } else {
-        options.reslove(result);
+        options.reslove(result)
       }
     } catch (error) {
-      options.reject(error);
+      options.reject(error)
     }
   }
 }
 
 const jmPromise = new JmPromise((reslove, reject) => {
-  reslove(123);
-});
+  reslove(123)
+})
 
 jmPromise
   .then(
     (value) => {
-      console.log("成功", value);
-      return "22222";
+      console.log('成功', value)
+      return '22222'
     },
     (value) => {
-      console.log("失败", value);
-      return 9527;
+      console.log('失败', value)
+      return 9527
     }
   )
   .then(
     (value) => {
-      console.log("成功2", value);
+      console.log('成功2', value)
     },
     (value) => {
-      console.log("失败2", value);
+      console.log('失败2', value)
     }
-  );
+  )
 ```
 
 ### 4. catch 方法
@@ -515,7 +514,7 @@ public static allSettled(promiseList: Array<JmPromise>) {
 
 1. 传入一个可迭代的 jmPromise 数组
 2. jmPromise 数组的状态有一个是成功的，那么就返回成功的那个回调
-3. jmPromise 数组的状态没有一个是成功的，并且抛出一个错误，返回一个失败的 jmPromise
+3. jmPromise 数组的状态没有一个是成功的，则抛出一个 AggregateError 错误，返回一个失败的 jmPromise
 
 ```ts
 public static any(promiseList: Array<JmPromise>) {
@@ -536,9 +535,13 @@ public static any(promiseList: Array<JmPromise>) {
 
 ### 5. 静态方法 race
 
+MDN: 静态方法接受一个 promise 可迭代对象作为输入，并返回一个 Promise。这个返回的 promise 会随着第一个 promise 的敲定而敲定。
+
 1. 它返回的是一个迭代 jmPromise 数组中，第一个被解决或拒绝 的 jmPromise
 
 ```ts
+
+// 返回第一次被成功或者拒绝的那个 Promise
 public static race(promiseList: Array<JmPromise>) {
     return new JmPromise(((reslove, reject) => {
         if (!Array.isArray(promiseList)) {
@@ -552,6 +555,29 @@ public static race(promiseList: Array<JmPromise>) {
 
 ```
 
+### 6. Promise.withResolvers()
+
+MDN: Promise.withResolvers() 静态方法返回一个对象，其包含一个新的 Promise 对象和两个函数，用于解决或拒绝它，对应于传入给 Promise() 构造函数执行器的两个参数。
+
+```js
+const { promise, resolve, reject } = Promise.withResolvers()
+
+console.log(promise) // pending
+
+setTimeout(() => {
+  resolve(1)
+  console.log(promise) // fulfilled
+}, 4000)
+
+// Promise.withResolvers() 完全等同于以下代码：
+
+let resolve, reject
+const promise = new Promise((res, rej) => {
+  resolve = res
+  reject = rej
+})
+```
+
 ---
 
 ## bug
@@ -561,29 +587,30 @@ public static race(promiseList: Array<JmPromise>) {
 ```ts
 const promise1 = new JmPromise((resolve, reject) => {
   setTimeout(() => {
-    resolve(1);
-  }, 1000);
-});
+    resolve(1)
+  }, 1000)
+})
 
 const promise3 = new JmPromise((resolve, reject) => {
   setTimeout(() => {
-    resolve(3);
-  }, 3000);
-});
+    resolve(3)
+  }, 3000)
+})
 
 const promise2 = new JmPromise((resolve, reject) => {
   setTimeout(() => {
-    resolve(2);
-  }, 2000);
-});
+    resolve(2)
+  }, 2000)
+})
 JmPromise.all([promise1, promise3, promise2]).then((value) => {
-  console.log(value);
-  Array.isArray(value) && value.forEach((k) => console.log(k));
-});
+  console.log(value)
+  Array.isArray(value) && value.forEach((k) => console.log(k))
+})
 // 理应输出 1 3 2
 ```
 
 ### 原代码这里
+
 ```ts
 public static all(promiseList: Array<JmPromise>) {
     const result = [];
