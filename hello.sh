@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
+# line_in_file(){
+# 	cat * | wc -l 
 
-read name age sex
+# line_num=$(line_in_file $1) # 函数的返回值赋给变量了
 
-echo "hello $name $age $sex!"
+# echo "这个文件 $1 有 $line_num 行"
