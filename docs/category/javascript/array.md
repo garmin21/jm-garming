@@ -218,3 +218,66 @@ let arr = [1, 2, 3, 4, 6]
 console.log(arr.includes(5)) //false
 console.log(arr.includes(6)) //true
 ```
+
+### findLast + findLastIndex 用法跟 find() 和 findIndex() 完全一致，区别是从数组的最后一个元素开始向前查找。
+
+```js
+const list = [1, 2, 3, 4, 5]
+
+//从后往前遍历
+const resultBackward = list.findLast((element) => element > 2) // 5
+const indexBackward = list.findLastIndex((element) => element > 2) // 4
+```
+
+### toReversed() 翻转, toSorted()排序, toSpliced() 替换
+
+1. toReversed === reverse
+2. toSorted === sort
+3. toSpliced === Splice
+
+区别在于原来的 `reverse ` `sort` `Splice` 会改变原数组，而 `toReversed` `toSorted` `toSpliced` 会返回一个新数组。不改变原数组
+
+```js
+let original = [1, 3, 2, 4]
+
+// 不改变原数组，返回处理后的新数组
+const toReversed = original.toReversed()
+console.log(original) // [ 1, 3, 2, 4 ]
+console.log(toReversed) // [ 4, 2, 3, 1 ]
+
+const toSorted = original.toSorted()
+console.log(original) // [ 1, 3, 2, 4 ]
+console.log(toSorted) // [ 1, 2, 3, 4 ]
+
+const toSpliced = original.toSpliced(0, 2, 'a')
+console.log(original) // [ 1, 3, 2, 4 ]
+console.log(toSpliced) // [ 'a', 2, 4 ]
+```
+
+### with 方法是使用<< 方括号表示法 >>修改指定索引值的复制方法版本。它会<< 返回一个新数组 >>，其指定索引处的值会被新值替换。
+
+1. with 就是直接通过 索引的 方式来修改 数组元素
+2. 返回一个新的数组，并不会对原数组产生影响
+
+```js
+const origin = [1, 3, 2, 4]
+const withed = original.with(1, 'a')
+console.log(original) // 原数组 [ 1, 3, 2, 4 ]
+console.log(withed) // 新数组 [ 1, 'a', 2, 4 ]
+```
+
+### flat(),flatMap()
+
+1. `flat()` 创建一个新的数组，并根据指定深度递归地将所有子数组元素拼接到新的数组中。
+2. `flatMap()`，等价于在调用 map() 方法后再调用深度为 1 的 flat() 方法
+
+```js
+let arr = [1, 2, [3, 4, [5, 6, [7, 8]]]]
+const flatArr = arr.flat()
+console.log(flatArr) // 从外层开始展开数据，默认深度为1，得到输出：[1,2,3,4,[5,6,[7,8]]]
+
+// ======
+let arr = [1, 2, 3, 4, 5, 6, 7, 8]
+const result = arr.flatMap((num) => [num * 2])
+console.log(result) // [2,4,6,8,10,12,14,16];
+```
