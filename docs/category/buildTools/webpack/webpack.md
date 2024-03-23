@@ -2,7 +2,7 @@
 title: 12-11 webpack 配置
 date: "2022-12-11"
 categories:
-  - webpack
+  - 构建工具
 tags:
   - webpack
 publish: true
