@@ -2,7 +2,7 @@
 title: 12-11 rollup 配置
 date: "2022-12-11"
 categories:
-  - rollup
+  - 构建工具
 tags:
   - rollup
 publish: true

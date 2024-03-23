@@ -2,7 +2,7 @@
 title: 3-2 vite搭建 formilyjs 提供 可视化表单设计器
 date: '2023-03-02'
 categories:
-    - formilyjs
+    - 框架
 tags:
     - formilyjs
 publish: true

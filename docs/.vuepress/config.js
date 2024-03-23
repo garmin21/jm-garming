@@ -46,6 +46,9 @@ module.exports = {
     searchMaxSuggestions: 5,
     sidebar: 'auto',
     blogConfig: {
+      tag: {
+        text: 'Tags',
+      },
       category: {
         location: 2,
         text: 'F2E基础',
@@ -58,5 +61,6 @@ module.exports = {
       ],
     },
     nav,
+    
   },
 }
