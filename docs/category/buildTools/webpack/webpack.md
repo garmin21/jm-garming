@@ -1,5 +1,5 @@
 ---
-title: 12-11 webpack 配置
+title: webpack 配置
 date: "2022-12-11"
 categories:
   - 构建工具
