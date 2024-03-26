@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Shell 脚本（基础篇） | Hello Garming</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/jm-garming/favicon.ico">
+    <meta name="description" content="garming个人博客">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/jm-garming/assets/css/0.styles.abb1dbd9.css" as="style"><link rel="preload" href="/jm-garming/assets/js/app.9b9a5a22.js" as="script"><link rel="preload" href="/jm-garming/assets/js/3.14bd5e3b.js" as="script"><link rel="preload" href="/jm-garming/assets/js/1.b59f91fd.js" as="script"><link rel="preload" href="/jm-garming/assets/js/16.c168fa5e.js" as="script"><link rel="prefetch" href="/jm-garming/assets/js/10.e40a3bbf.js"><link rel="prefetch" href="/jm-garming/assets/js/100.4e10fbc3.js"><link rel="prefetch" href="/jm-garming/assets/js/101.c2fab5ee.js"><link rel="prefetch" href="/jm-garming/assets/js/102.1e8cc990.js"><link rel="prefetch" href="/jm-garming/assets/js/103.708204fa.js"><link rel="prefetch" href="/jm-garming/assets/js/104.a9dc98aa.js"><link rel="prefetch" href="/jm-garming/assets/js/105.8a853bd3.js"><link rel="prefetch" href="/jm-garming/assets/js/106.36fbde3a.js"><link rel="prefetch" href="/jm-garming/assets/js/107.308a4b59.js"><link rel="prefetch" href="/jm-garming/assets/js/108.5c50192f.js"><link rel="prefetch" href="/jm-garming/assets/js/109.cae6bcc4.js"><link rel="prefetch" href="/jm-garming/assets/js/11.f2156d63.js"><link rel="prefetch" href="/jm-garming/assets/js/110.99ddd0de.js"><link rel="prefetch" href="/jm-garming/assets/js/111.35e8e59c.js"><link rel="prefetch" href="/jm-garming/assets/js/112.f850ea28.js"><link rel="prefetch" href="/jm-garming/assets/js/113.8e77cc58.js"><link rel="prefetch" href="/jm-garming/assets/js/114.d61e5534.js"><link rel="prefetch" href="/jm-garming/assets/js/115.9645dcb4.js"><link rel="prefetch" href="/jm-garming/assets/js/116.547a0706.js"><link rel="prefetch" href="/jm-garming/assets/js/117.cc4ee48a.js"><link rel="prefetch" href="/jm-garming/assets/js/118.a84c4919.js"><link rel="prefetch" href="/jm-garming/assets/js/119.53202ac7.js"><link rel="prefetch" href="/jm-garming/assets/js/12.b537e666.js"><link rel="prefetch" href="/jm-garming/assets/js/120.8676a1b1.js"><link rel="prefetch" href="/jm-garming/assets/js/121.582d9be1.js"><link rel="prefetch" href="/jm-garming/assets/js/122.acc6b787.js"><link rel="prefetch" href="/jm-garming/assets/js/123.0363f4d2.js"><link rel="prefetch" href="/jm-garming/assets/js/124.df5020df.js"><link rel="prefetch" href="/jm-garming/assets/js/125.477ec94c.js"><link rel="prefetch" href="/jm-garming/assets/js/126.1fff4b7c.js"><link rel="prefetch" href="/jm-garming/assets/js/127.4efee3cc.js"><link rel="prefetch" href="/jm-garming/assets/js/128.e4a6b3f7.js"><link rel="prefetch" href="/jm-garming/assets/js/129.937c34f1.js"><link rel="prefetch" href="/jm-garming/assets/js/13.2b45b995.js"><link rel="prefetch" href="/jm-garming/assets/js/130.76d19f45.js"><link rel="prefetch" href="/jm-garming/assets/js/131.d63e5021.js"><link rel="prefetch" href="/jm-garming/assets/js/132.3a10dbef.js"><link rel="prefetch" href="/jm-garming/assets/js/133.4c9e6d7e.js"><link rel="prefetch" href="/jm-garming/assets/js/134.6685fba6.js"><link rel="prefetch" href="/jm-garming/assets/js/135.7d729be7.js"><link rel="prefetch" href="/jm-garming/assets/js/136.16ae8755.js"><link rel="prefetch" href="/jm-garming/assets/js/137.075d3d5c.js"><link rel="prefetch" href="/jm-garming/assets/js/138.06fe59fc.js"><link rel="prefetch" href="/jm-garming/assets/js/139.6aee5c9f.js"><link rel="prefetch" href="/jm-garming/assets/js/14.7e84021d.js"><link rel="prefetch" href="/jm-garming/assets/js/140.66fb11ba.js"><link rel="prefetch" href="/jm-garming/assets/js/141.41f70dd4.js"><link rel="prefetch" href="/jm-garming/assets/js/142.c81198f2.js"><link rel="prefetch" href="/jm-garming/assets/js/143.5a42a9dd.js"><link rel="prefetch" href="/jm-garming/assets/js/144.8079f040.js"><link rel="prefetch" href="/jm-garming/assets/js/145.c9a9c77d.js"><link rel="prefetch" href="/jm-garming/assets/js/146.18d65eb5.js"><link rel="prefetch" href="/jm-garming/assets/js/147.399e0989.js"><link rel="prefetch" href="/jm-garming/assets/js/148.1100f11d.js"><link rel="prefetch" href="/jm-garming/assets/js/149.822f0e54.js"><link rel="prefetch" href="/jm-garming/assets/js/15.8b32dc6b.js"><link rel="prefetch" href="/jm-garming/assets/js/150.488b7490.js"><link rel="prefetch" href="/jm-garming/assets/js/151.587a2193.js"><link rel="prefetch" href="/jm-garming/assets/js/152.867cdf23.js"><link rel="prefetch" href="/jm-garming/assets/js/153.3387108d.js"><link rel="prefetch" href="/jm-garming/assets/js/154.2fc43ec8.js"><link rel="prefetch" href="/jm-garming/assets/js/155.c140b7bf.js"><link rel="prefetch" href="/jm-garming/assets/js/156.b58a8fe6.js"><link rel="prefetch" href="/jm-garming/assets/js/157.38698f0b.js"><link rel="prefetch" href="/jm-garming/assets/js/158.3d3cc993.js"><link rel="prefetch" href="/jm-garming/assets/js/159.5c50d790.js"><link rel="prefetch" href="/jm-garming/assets/js/17.86c58aef.js"><link rel="prefetch" href="/jm-garming/assets/js/18.d64fecb1.js"><link rel="prefetch" href="/jm-garming/assets/js/19.ff939e98.js"><link rel="prefetch" href="/jm-garming/assets/js/20.8e124780.js"><link rel="prefetch" href="/jm-garming/assets/js/21.896df463.js"><link rel="prefetch" href="/jm-garming/assets/js/22.f138da30.js"><link rel="prefetch" href="/jm-garming/assets/js/23.2ae4a8a2.js"><link rel="prefetch" href="/jm-garming/assets/js/24.c84a8c00.js"><link rel="prefetch" href="/jm-garming/assets/js/25.d8a6b401.js"><link rel="prefetch" href="/jm-garming/assets/js/26.71d53b1e.js"><link rel="prefetch" href="/jm-garming/assets/js/27.65f33ce3.js"><link rel="prefetch" href="/jm-garming/assets/js/28.e6ae543e.js"><link rel="prefetch" href="/jm-garming/assets/js/29.4b209cb4.js"><link rel="prefetch" href="/jm-garming/assets/js/30.d4ee29b9.js"><link rel="prefetch" href="/jm-garming/assets/js/31.7895a52e.js"><link rel="prefetch" href="/jm-garming/assets/js/32.d7b935ec.js"><link rel="prefetch" href="/jm-garming/assets/js/33.23cd4816.js"><link rel="prefetch" href="/jm-garming/assets/js/34.9dee7862.js"><link rel="prefetch" href="/jm-garming/assets/js/35.4a45253a.js"><link rel="prefetch" href="/jm-garming/assets/js/36.9316d5a5.js"><link rel="prefetch" href="/jm-garming/assets/js/37.10b998bb.js"><link rel="prefetch" href="/jm-garming/assets/js/38.190fd401.js"><link rel="prefetch" href="/jm-garming/assets/js/39.f11844ea.js"><link rel="prefetch" href="/jm-garming/assets/js/4.87b4cf48.js"><link rel="prefetch" href="/jm-garming/assets/js/40.e3fab42b.js"><link rel="prefetch" href="/jm-garming/assets/js/41.60eb3301.js"><link rel="prefetch" href="/jm-garming/assets/js/42.8d8809d7.js"><link rel="prefetch" href="/jm-garming/assets/js/43.a10b606d.js"><link rel="prefetch" href="/jm-garming/assets/js/44.27d0ea11.js"><link rel="prefetch" href="/jm-garming/assets/js/45.4d5c90bf.js"><link rel="prefetch" href="/jm-garming/assets/js/46.7510c610.js"><link rel="prefetch" href="/jm-garming/assets/js/47.95fc715b.js"><link rel="prefetch" href="/jm-garming/assets/js/48.d26e76a3.js"><link rel="prefetch" href="/jm-garming/assets/js/49.11c6ba4d.js"><link rel="prefetch" href="/jm-garming/assets/js/5.70cd3177.js"><link rel="prefetch" href="/jm-garming/assets/js/50.38b7df02.js"><link rel="prefetch" href="/jm-garming/assets/js/51.736b2e93.js"><link rel="prefetch" href="/jm-garming/assets/js/52.bff17156.js"><link rel="prefetch" href="/jm-garming/assets/js/53.11f404c7.js"><link rel="prefetch" href="/jm-garming/assets/js/54.820787d8.js"><link rel="prefetch" href="/jm-garming/assets/js/55.371ef653.js"><link rel="prefetch" href="/jm-garming/assets/js/56.fbb9b336.js"><link rel="prefetch" href="/jm-garming/assets/js/57.7f246151.js"><link rel="prefetch" href="/jm-garming/assets/js/58.e94d3925.js"><link rel="prefetch" href="/jm-garming/assets/js/59.842d79c1.js"><link rel="prefetch" href="/jm-garming/assets/js/6.7fc18ab6.js"><link rel="prefetch" href="/jm-garming/assets/js/60.c7cf4418.js"><link rel="prefetch" href="/jm-garming/assets/js/61.f2a7862f.js"><link rel="prefetch" href="/jm-garming/assets/js/62.d3c826e8.js"><link rel="prefetch" href="/jm-garming/assets/js/63.c582c4fa.js"><link rel="prefetch" href="/jm-garming/assets/js/64.cfae01e1.js"><link rel="prefetch" href="/jm-garming/assets/js/65.edb2c6a0.js"><link rel="prefetch" href="/jm-garming/assets/js/66.3031df1e.js"><link rel="prefetch" href="/jm-garming/assets/js/67.85eb5394.js"><link rel="prefetch" href="/jm-garming/assets/js/68.0d8945b1.js"><link rel="prefetch" href="/jm-garming/assets/js/69.7863ea6f.js"><link rel="prefetch" href="/jm-garming/assets/js/7.9c069c23.js"><link rel="prefetch" href="/jm-garming/assets/js/70.9191fc83.js"><link rel="prefetch" href="/jm-garming/assets/js/71.568f8815.js"><link rel="prefetch" href="/jm-garming/assets/js/72.422620cf.js"><link rel="prefetch" href="/jm-garming/assets/js/73.e362c9f4.js"><link rel="prefetch" href="/jm-garming/assets/js/74.fcf0e844.js"><link rel="prefetch" href="/jm-garming/assets/js/75.69042732.js"><link rel="prefetch" href="/jm-garming/assets/js/76.71c5acde.js"><link rel="prefetch" href="/jm-garming/assets/js/77.30aa67a6.js"><link rel="prefetch" href="/jm-garming/assets/js/78.b8941992.js"><link rel="prefetch" href="/jm-garming/assets/js/79.0631afe2.js"><link rel="prefetch" href="/jm-garming/assets/js/8.0e5dc4b6.js"><link rel="prefetch" href="/jm-garming/assets/js/80.5677ebf0.js"><link rel="prefetch" href="/jm-garming/assets/js/81.5d791d87.js"><link rel="prefetch" href="/jm-garming/assets/js/82.0884b9d9.js"><link rel="prefetch" href="/jm-garming/assets/js/83.39f1cc51.js"><link rel="prefetch" href="/jm-garming/assets/js/84.31b3d256.js"><link rel="prefetch" href="/jm-garming/assets/js/85.acba78bb.js"><link rel="prefetch" href="/jm-garming/assets/js/86.b76ebae0.js"><link rel="prefetch" href="/jm-garming/assets/js/87.e394baba.js"><link rel="prefetch" href="/jm-garming/assets/js/88.3524832f.js"><link rel="prefetch" href="/jm-garming/assets/js/89.fe994950.js"><link rel="prefetch" href="/jm-garming/assets/js/9.65f9127b.js"><link rel="prefetch" href="/jm-garming/assets/js/90.6acf3725.js"><link rel="prefetch" href="/jm-garming/assets/js/91.9fc17ce9.js"><link rel="prefetch" href="/jm-garming/assets/js/92.a97fffdb.js"><link rel="prefetch" href="/jm-garming/assets/js/93.10b0ab12.js"><link rel="prefetch" href="/jm-garming/assets/js/94.56b34047.js"><link rel="prefetch" href="/jm-garming/assets/js/95.e4af4ad4.js"><link rel="prefetch" href="/jm-garming/assets/js/96.861712cf.js"><link rel="prefetch" href="/jm-garming/assets/js/97.d91a75f3.js"><link rel="prefetch" href="/jm-garming/assets/js/98.e9c3f0db.js"><link rel="prefetch" href="/jm-garming/assets/js/99.8a2f0294.js">
+    <link rel="stylesheet" href="/jm-garming/assets/css/0.styles.abb1dbd9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Hello Garming</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>garming个人博客</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>garMing</span>
+            
+          <!---->
+          2024
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jm-garming/" class="home-link router-link-active"><img src="/jm-garming/jm.jpg" alt="Hello Garming" class="logo"> <span class="site-name">Hello Garming</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-suggestion"></i>
+      收藏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/code-quality/" class="nav-link"><i class="undefined"></i>
+  代码质量
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/lighthouse/" class="nav-link"><i class="undefined"></i>
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/ssr-render/" class="nav-link"><i class="undefined"></i>
+  服务端渲染
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/framework/" class="nav-link"><i class="undefined"></i>
+  前端架构
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      F2E基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/axios/" class="nav-link"><i class="undefined"></i>
+  axios
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/构建工具/" class="nav-link"><i class="undefined"></i>
+  构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/概念/" class="nav-link"><i class="undefined"></i>
+  概念
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Error/" class="nav-link"><i class="undefined"></i>
+  Error
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/框架/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/可视化/" class="nav-link"><i class="undefined"></i>
+  可视化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/面试题/" class="nav-link"><i class="undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/案例研究/" class="nav-link"><i class="undefined"></i>
+  案例研究
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Node Package Manager/" class="nav-link"><i class="undefined"></i>
+  Node Package Manager
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/vscode/" class="nav-link"><i class="undefined"></i>
+  vscode
+</a></li></ul></div></div><div class="nav-item"><a href="/jm-garming/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/jm-garming/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <h3 class="name" data-v-39576ba9>
+    garMing
+  </h3> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>147</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>26</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9><li class="social-item" data-v-39576ba9><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-39576ba9></i></li><li class="social-item" data-v-39576ba9><i class="iconfont reco-npm" style="color:#f26d6d;" data-v-39576ba9></i></li><li class="social-item" data-v-39576ba9><i class="iconfont reco-npm" style="color:#abbd81;" data-v-39576ba9></i></li></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-suggestion"></i>
+      收藏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/code-quality/" class="nav-link"><i class="undefined"></i>
+  代码质量
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/lighthouse/" class="nav-link"><i class="undefined"></i>
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/ssr-render/" class="nav-link"><i class="undefined"></i>
+  服务端渲染
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/framework/" class="nav-link"><i class="undefined"></i>
+  前端架构
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      F2E基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/axios/" class="nav-link"><i class="undefined"></i>
+  axios
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/构建工具/" class="nav-link"><i class="undefined"></i>
+  构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/概念/" class="nav-link"><i class="undefined"></i>
+  概念
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Error/" class="nav-link"><i class="undefined"></i>
+  Error
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/框架/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/可视化/" class="nav-link"><i class="undefined"></i>
+  可视化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/面试题/" class="nav-link"><i class="undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/案例研究/" class="nav-link"><i class="undefined"></i>
+  案例研究
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Node Package Manager/" class="nav-link"><i class="undefined"></i>
+  Node Package Manager
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/vscode/" class="nav-link"><i class="undefined"></i>
+  vscode
+</a></li></ul></div></div><div class="nav-item"><a href="/jm-garming/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/jm-garming/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Shell 脚本（基础篇）</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>garMing</span>
+            
+          <!---->
+          2024
+        </a></span></div></div> <div data-v-130b300a><main class="page"><section><div class="page-title"><h1 class="title">Shell 脚本（基础篇）</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>garMing</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>3/14/2024</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>Shell</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="_1-shell-是什么"><a href="#_1-shell-是什么" class="header-anchor">#</a> 1. shell 是什么</h2> <ol><li><p>Shell  可以是一个程序，提供一个与用户对话的环境。这个环境只有一个命令提示符，让用户从键盘输入命令，所以又称为命令行环境（ command line interface ，简写为 CLI ）。 Shell  接收到用户输入的命令，将命令送入操作系统执行，并将结果返回给用户。</p></li> <li><p>Shell 也可以是一个命令解释器，解释用户输入的命令。它支持变量、条件判断、循环操作等语法，所以用户可以用 Shell 命令写出各种小程序，又称为脚本 script。这些脚本都通过 Shell 的解释执行，而不通过编译。</p></li> <li><p>Shell 还可以是一个工具箱，提供了各种小工具，供用户方便地使用操作系统的功能</p></li> <li><p>Shell 这门语言可以帮助我们完成很多自动化任务，例如：保存数据，监测系统的负载，等等。</p></li> <li><p>Shell 相比 C 等语言的优势在于它是完全嵌入在 Linux 中的，不需要安装，编译。</p></li> <li><p>Shell 有很多种，只要能给用户提供命令行环境的程序，都可以看作是 Shell 。</p> <ul><li>Bourne Shell（sh） ，是目前所有 Shell  的祖先，被安装在几乎所有发源于 Unix  的操作系统上。</li> <li>Bourne Again shell（bash） ，是 sh  的一个进阶版本，比 sh  更优秀， bash  是目前大多数 Linux  发行版以及 macOS  操作系统的默认 Shell 。</li> <li>C Shell（csh） ，它的语法类似 C  语言。</li> <li>TENEX C Shell（tcsh） ，它是 csh  的优化版本。</li> <li>Korn shell（ksh） ，一般在收费的 Unix  版本上比较多见。</li> <li>Z Shell（zsh） ，它是一种比较新近的 Shell ，集 bash 、 ksh  和 tcsh  各家之大成。</li></ul></li></ol> <p>关于 Shell 的几个常见命令</p> <ol><li><code>echo $SHELL</code> 可以查看本机正在使用的 Shell ，其中 $SHELL 是环境变量。</li> <li><code>cat /etc/shells</code> 可以查看当前的 Linux 系统安装的所有 Shell 。</li> <li><code>chsh</code> 命令是切换 Shell 类型为 chsh 。</li></ol> <h2 id="_2-编写第一个-shell-脚本"><a href="#_2-编写第一个-shell-脚本" class="header-anchor">#</a> 2. 编写第一个 shell 脚本</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/bash 指定脚本要使用的 Shell 类型为 Bash 。</span>
+<span class="token comment"># ! 被称为 Sha-bang ，或者 Shebang ， Linux 会分析它之后的指令，并载入该指令作为解析器。</span>
+
+
+<span class="token builtin class-name">echo</span> <span class="token string">'hello word'</span>
+</code></pre></div><p>执行 shell 脚本，如果我们不是 root 用户的话，需要给脚本添加可执行权限才可以运行， <code>chmod +x hello.sh</code> 。</p> <p>增加执行权限后可以执行 <code>./hello.sh</code> 来运行该脚本，也可以使用 <code>bash -x hello.sh</code> 以调试模式运行脚本。</p> <p><strong>系统命令，直接执行 hello.sh 不需要路径</strong></p> <ol><li><code>echo $PATH</code> 获取查看系统里所有可以被直接执行程序的路径。</li> <li><code>sudo cp hello.sh /usr/bin</code> 将 hello.sh 拷贝到任意一个 path 路径路径中，这里拷贝到 /usr/bin 。
+<ul><li>注意： 当重新修改了脚本，需要重新拷贝到 之前拷贝到路径上，否则还是上次的内容</li></ul></li></ol> <h2 id="_3-shell-命令语句"><a href="#_3-shell-命令语句" class="header-anchor">#</a> 3. shell 命令语句</h2> <h3 id="_1-echo"><a href="#_1-echo" class="header-anchor">#</a> 1. echo</h3> <p>echo 命令的作用是在屏幕输出一行文本，可以将该命令的参数原样输出。</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">echo</span> <span class="token string">'hello word'</span>
+
+<span class="token comment"># 用 -e 参数使得 echo 可以解析转义字符</span>
+<span class="token builtin class-name">echo</span> -e <span class="token string">'hello \n word'</span>
+</code></pre></div><h3 id="_2-引号"><a href="#_2-引号" class="header-anchor">#</a> 2. 引号</h3> <ol><li>单引号 '' ，单引号用于保留字符的字面含义，各种特殊字符在单引号里面，都会变为普通字符，比如星号* 、美元符号$ 、反斜杠 \ 等。</li> <li>双引号 &quot;&quot; ，双引号比单引号宽松，大部分特殊字符在双引号里面，都会失去特殊含义，变成普通字符。三个特殊字符除外：美元符号 $ 、反引号 ``` 和反斜杠 \</li> <li>反引号 要求 Shell 执行被它括起来的内容，例如执行 echo<code>pwd</code>，相当于直接执行 pwd 命令 。</li></ol> <h3 id="_3-变量"><a href="#_3-变量" class="header-anchor">#</a> 3. 变量</h3> <p>Bash 没有数据类型的概念，所有的变量值都是字符串。</p> <h4 id="_1-环境变量"><a href="#_1-环境变量" class="header-anchor">#</a> 1. 环境变量</h4> <p>环境变量是 Bash 环境自带的变量，进入 Shell 时已经定义好了，可以直接使用。它们通常是系统定义好的，可以理解成全局的常量。</p> <ul><li>BASHPID： Bash  进程的进程 ID 。</li> <li>EDITOR：默认的文本编辑器。</li> <li>HOME：用户的主目录。</li> <li>HOST：当前主机的名称。</li> <li>LANG：字符集以及语言编码，比如 zh_CN.UTF-8。</li> <li>PATH：由冒号分开的目录列表，当输入可执行程序名后，会搜索这个目录列表。</li> <li>PWD：当前工作目录。</li> <li>SHELL： Shell  的名字。</li> <li>TERM：终端类型名，即终端仿真器所用的协议。</li> <li>UID：当前用户的 ID  编号。</li> <li>USER：当前用户的用户名</li></ul> <div class="language-sh extra-class"><pre class="language-sh"><code>
+<span class="token comment"># 显示所有的环境变量</span>
+<span class="token function">env</span>
+
+<span class="token comment"># 显示 由冒号分开的目录列表</span>
+<span class="token builtin class-name">echo</span> <span class="token environment constant">$PATH</span>
+
+<span class="token comment"># 自定义环境变量</span>
+</code></pre></div><h4 id="_2-声明变量"><a href="#_2-声明变量" class="header-anchor">#</a> 2. 声明变量</h4> <ol><li>字母、数字和下划线字符组成。</li> <li>第一个字符必须是一个字母或一个下划线，不能是数字。</li> <li>不允许出现空格和标点符号。</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token assign-left variable">message</span><span class="token operator">=</span><span class="token string">&quot;Hello World&quot;</span> <span class="token comment"># message 为变量名</span>
+
+<span class="token comment"># 使用变量 打印 Hello World</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$message</span>
+</code></pre></div><h4 id="_3-参数变量"><a href="#_3-参数变量" class="header-anchor">#</a> 3. 参数变量</h4> <p>可以这样调用我们的脚本文件 ./hello.sh 参数 1 参数 2 ... 其中参数 1、参数 2...被称为“参数变量”。</p> <ol><li>$# 参数的数目</li> <li>$0 被运行的脚本名称</li> <li>$1 第一个参数</li> <li>$2 第二个参数</li> <li>$N 第 N 个参数</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">echo</span> <span class="token string">&quot;脚本名称：<span class="token variable">$0</span>， 参数是 <span class="token variable">$1</span> <span class="token variable">$2</span> <span class="token variable">$3</span>&quot;</span>
+
+</code></pre></div><p><strong>使用 shift 命令来挪移变量值：</strong></p> <p>同样是 $1 ，通过 shift 使得它的值会变成原本是 $2 的值。因此 shift 命令常被用在循环中，使得参数一个接一个地被处理。</p> <div class="language-sh extra-class"><pre class="language-sh"><code>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;脚本名称：<span class="token variable">$0</span>， 参数是 <span class="token variable">$1</span>&quot;</span> <span class="token comment"># 参数是 1</span>
+<span class="token builtin class-name">shift</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;脚本名称：<span class="token variable">$0</span>， 参数是 <span class="token variable">$1</span>&quot;</span> <span class="token comment"># 参数是 2</span>
+</code></pre></div><h3 id="_4-数组"><a href="#_4-数组" class="header-anchor">#</a> 4. 数组</h3> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 定义数组</span>
+<span class="token assign-left variable">array</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'v1'</span> <span class="token string">'v2'</span> <span class="token string">'v3'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 访问数组</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${array<span class="token punctuation">[</span>2<span class="token punctuation">]</span>}</span> <span class="token comment"># 访问数组（bash下标是从0开始）</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${array<span class="token punctuation">[</span>*<span class="token punctuation">]</span>}</span> <span class="token comment"># 使用*号访问数组所有的值</span>
+</code></pre></div><h3 id="_5-数学运算"><a href="#_5-数学运算" class="header-anchor">#</a> 5. 数学运算</h3> <p>在 Bash 中，所有的变量都是字符串， Bash 本身不会操作数字，因此它也不会做运算。不过可以使用 let 命令来实现运算。</p> <p>bash 中可用的运算符有以下几种 加法 减法 乘法 除法 乘方 除余</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">let</span> <span class="token string">&quot;a = 5&quot;</span>
+<span class="token builtin class-name">let</span> <span class="token string">&quot;b = 2&quot;</span>
+<span class="token builtin class-name">let</span> <span class="token string">&quot;c = a + b&quot;</span>
+<span class="token builtin class-name">let</span> <span class="token string">&quot;d = c ** 2&quot;</span> <span class="token comment"># 乘方</span>
+<span class="token builtin class-name">let</span> <span class="token string">&quot;e = d % 2&quot;</span> <span class="token comment">#  除余</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;c = <span class="token variable">$c</span>&quot;</span> <span class="token comment"># 输出 c = 7</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;d = <span class="token variable">$d</span>&quot;</span> <span class="token comment"># 输出 d = 49</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;e = <span class="token variable">$e</span>&quot;</span> <span class="token comment"># 输出 e = 1</span>
+</code></pre></div><h3 id="_6-read"><a href="#_6-read" class="header-anchor">#</a> 6. read</h3> <p>请求输入， read 命令读取到的文本会立即被存储在一个变量里。 也可以同时接收一个或者多个</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">read</span> name age sex
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;hello <span class="token variable">$name</span> <span class="token variable">$age</span> <span class="token variable">$sex</span>!&quot;</span>
+
+
+<span class="token comment"># 使用 -p 参数， 显示提示信息</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">&quot;请输入你的姓名&quot;</span> name
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;hello <span class="token variable">$name</span>!&quot;</span>
+
+<span class="token comment"># 用 -n 参数可以限制用户输入的字符串的最大长度（字符数）</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">&quot;请输入您的姓名：&quot;</span> -n <span class="token number">5</span> name
+
+<span class="token comment"># 用 -t 参数可以限定用户的输入时间（单位：秒）超过这个时间，就不读取输入了。</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">&quot;请输入您的姓名：&quot;</span> -n <span class="token number">5</span> -t <span class="token number">10</span> name
+
+<span class="token comment"># 用 -s 参数可以隐藏输入内容，在用户输入密码时使用。</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">&quot;请输入密码：&quot;</span> -s password
+</code></pre></div><p>执行 ./read.sh 时，会发现光标处于接收输入的状态，此时我们输入一个字符串 lion 按下回车键后，控制台会打印出 hello lion 。</p> <h2 id="_4-条件语句"><a href="#_4-条件语句" class="header-anchor">#</a> 4. 条件语句</h2> <h3 id="_1-if-格式"><a href="#_1-if-格式" class="header-anchor">#</a> 1. if 格式</h3> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token keyword">if</span> <span class="token punctuation">[</span> 条件测试 <span class="token punctuation">]</span> <span class="token comment"># 条件测试左右必须要有空格</span>
+<span class="token keyword">then</span>
+	<span class="token punctuation">..</span>.
+<span class="token keyword">fi</span> <span class="token comment"># 结束符</span>
+
+<span class="token comment"># 或者</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> 条件测试 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+	<span class="token punctuation">..</span>.
+<span class="token keyword">fi</span>
+
+</code></pre></div><h3 id="_2-if-else-格式"><a href="#_2-if-else-格式" class="header-anchor">#</a> 2. if else 格式</h3> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token keyword">if</span> <span class="token punctuation">[</span> 条件测试 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+	<span class="token punctuation">..</span>.
+<span class="token keyword">else</span>
+	<span class="token punctuation">..</span>.
+<span class="token keyword">fi</span>
+</code></pre></div><h3 id="_3-if-else-elif-格式"><a href="#_3-if-else-elif-格式" class="header-anchor">#</a> 3. if else elif 格式</h3> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token keyword">if</span> <span class="token punctuation">[</span> 条件测试1 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+ <span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> 条件测试2 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+	<span class="token punctuation">..</span>.
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> 条件测试3 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+	<span class="token punctuation">..</span>.
+<span class="token keyword">else</span>
+	<span class="token punctuation">..</span>.default
+<span class="token keyword">fi</span>
+
+</code></pre></div><h3 id="_4-test-语句"><a href="#_4-test-语句" class="header-anchor">#</a> 4. test 语句</h3> <p>test 等同 于 if [ ] ,只是 语句不同</p> <div class="language-sh extra-class"><pre class="language-sh"><code>
+<span class="token comment"># 声明变量</span>
+<span class="token assign-left variable">num1</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">num2</span><span class="token operator">=</span><span class="token number">1</span>
+
+<span class="token comment"># 判断数字是否相等</span>
+<span class="token builtin class-name">test</span> <span class="token variable">$num1</span> -eq <span class="token variable">$num2</span>
+<span class="token comment"># 0 表示true 非0 表示 false</span>
+<span class="token comment"># $? 获取到的是上一个函数或语句的的返回值</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+</code></pre></div><h3 id="_5-case-多项分支"><a href="#_5-case-多项分支" class="header-anchor">#</a> 5. case 多项分支</h3> <p>类似于 switch...case</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+    <span class="token string">&quot;jm&quot;</span><span class="token punctuation">)</span>
+  	<span class="token builtin class-name">echo</span> <span class="token string">&quot;hello <span class="token variable">$1</span>&quot;</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+   <span class="token string">&quot;zk&quot;</span> <span class="token operator">|</span> <span class="token string">&quot;qq&quot;</span> <span class="token operator">|</span> <span class="token string">&quot;zhengguo&quot;</span><span class="token punctuation">)</span> <span class="token comment"># 这里的逻辑或是一根竖线</span>
+   	<span class="token builtin class-name">echo</span> <span class="token string">&quot;hello <span class="token variable">$1</span>*&quot;</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+   *<span class="token punctuation">)</span>
+   	<span class="token builtin class-name">echo</span> <span class="token string">&quot;我不认识你 <span class="token variable">$1</span>&quot;</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+
+</code></pre></div><h2 id="_5-shell-中的表达式和运算符"><a href="#_5-shell-中的表达式和运算符" class="header-anchor">#</a> 5. shell 中的表达式和运算符</h2> <h3 id="_1-判断字符串"><a href="#_1-判断字符串" class="header-anchor">#</a> 1. 判断字符串</h3> <ol><li><code>$string1 = $string2</code>  表示两个字符串是否相等。</li> <li><code>$string1 != $string2</code> 表示两个字符串是否不相等。</li> <li><code>-z $string</code>  表示字符串 string  是否为空。</li> <li><code>-n $string</code>  表示字符串 string  是否不为空。</li></ol> <h3 id="_2-判断数字"><a href="#_2-判断数字" class="header-anchor">#</a> 2. 判断数字</h3> <ol><li><code>$num1 -eq $num2</code> equal  的缩写，表示两个数字是否相等。</li> <li><code>$num1 -ne $num2</code> not equal  的缩写，表示两个数字是否不相等。</li> <li><code>$num1 -lt $num2</code> lower than  的缩写，表示 num1  是否小于 num2 。</li> <li><code>$num1 -le $num2</code> lower or equal  的缩写，表示 num1  是否小于或等于 num2 。</li> <li><code>$num1 -gt $num2</code> greater than  的缩写，表示 num1  是否大于 num2 。</li> <li><code>$num1 -ge $num2</code> greate or equal  的缩写，表示 num1  是否大于或等于 num2 。</li></ol> <h3 id="_3-判断文件"><a href="#_3-判断文件" class="header-anchor">#</a> 3. 判断文件</h3> <ol><li><code>-e $file</code> exist  的缩写，表示文件是否存在。</li> <li><code>-d $file</code> directory  的缩写，表示文件是否为一个目录。</li> <li><code>-f $file</code> file  的缩写，表示文件是否是一个文件。</li> <li><code>-L $file</code> Link  的缩写，表示链接。</li> <li><code>-r $file</code> readable  的缩写，表示文件是否可读。</li> <li><code>-w $file</code> writable  的缩写，表示文件是否可写。</li> <li><code>-x $file</code> executable  的缩写，表示文件是否可执行。</li> <li><code>$file1 -nt $file2</code>  表示文件 file1  是否比 file2  更新。</li> <li><code>$file1 -ot $file2</code>  表示文件 file1  是否比 file2  更旧。</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">echo</span> <span class="token string">&quot;在1inux中，命令退出状态为0表示为真(正确)，非0表示假(错)&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;请输入一个文件名&quot;</span>
+
+<span class="token builtin class-name">read</span> FILE FILE2
+
+<span class="token builtin class-name">test</span> -e <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> 存在? <span class="token variable">$?</span>
+
+<span class="token builtin class-name">test</span> -s <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;非空?<span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -b <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;块设备文件?<span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -c <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;字符串设备文件? <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -d <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;目录文件? <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -f <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;普通文件? <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -L <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;软链接文件? <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -S <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;套接子文件? <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> -p <span class="token variable">$FILE</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;管道文件？ <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> <span class="token variable">$FILE</span> -nt <span class="token variable">$FILE2</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;FILE -nt FILE2 : FILE的修改时间是否比FILE2新 <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> <span class="token variable">$FILE</span> -ot <span class="token variable">$FILE2</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;FILE -ot FILE2 : FILE的修改时间是否比FILE2旧 <span class="token variable">$?</span>&quot;</span>
+
+<span class="token builtin class-name">test</span> <span class="token variable">$FILE</span> -ef <span class="token variable">$FILE2</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;FILE -ef FILE2 : 两个文件的inode节点号是否一样，用于判断是否是硬链接 <span class="token variable">$?</span>&quot;</span>
+
+<span class="token comment"># Linux内部使用 inode号来识别文件，而非文件名，对于系统来说，文件名是 inode号的别称，是便于用户识别文件的，文件名和 inode号是一一对应的关系，每个 inode号对应一个文件名</span>
+</code></pre></div><h3 id="_4-逻辑运算符"><a href="#_4-逻辑运算符" class="header-anchor">#</a> 4. 逻辑运算符</h3> <ol><li>&amp;&amp; 表示逻辑与，只要有一个不为真，整个条件测试为假。</li> <li>|| 表示逻辑或，只要有一个为真，整个条件测试就为真。</li> <li>! 表示反转测试条件。</li></ol> <h2 id="_6-循环语句"><a href="#_6-循环语句" class="header-anchor">#</a> 6. 循环语句</h2> <p>Bash 中有 3 中类型的循环语句</p> <h3 id="_1-while-循环"><a href="#_1-while-循环" class="header-anchor">#</a> 1. while 循环</h3> <p>使用 shell 写一个 while 循环 判断 num1 小于 num2 就一直累加。直到 num1 等于 num2 后结束循环</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token assign-left variable">num1</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">num2</span><span class="token operator">=</span><span class="token number">10</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$num1</span> -lt <span class="token variable">$num2</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+  <span class="token assign-left variable">num1</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>num1 <span class="token operator">+</span> <span class="token number">1</span><span class="token variable">))</span></span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;num1: <span class="token variable">$num1</span>&quot;</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;num1 is now equal to num2 <span class="token variable">$num1</span>&quot;</span>
+
+</code></pre></div><h3 id="_2-until-循环"><a href="#_2-until-循环" class="header-anchor">#</a> 2. until 循环</h3> <p>它的执行逻辑和 while 正好相反。测试逻辑为假 才会执行循环，测试逻辑为真才会结束循环</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token assign-left variable">num1</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">num2</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token comment"># 测试 num1 是否大于 num2</span>
+<span class="token keyword">until</span> <span class="token punctuation">[</span> <span class="token variable">$num1</span> -gt <span class="token variable">$num2</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+  <span class="token assign-left variable">num1</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>num1 <span class="token operator">+</span> <span class="token number">1</span><span class="token variable">))</span></span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;num1: <span class="token variable">$num1</span>&quot;</span>
+<span class="token keyword">done</span>
+
+</code></pre></div><h3 id="_3-for-循环"><a href="#_3-for-循环" class="header-anchor">#</a> 3. for 循环</h3> <p>用于遍历列表值</p> <div class="language-sh extra-class"><pre class="language-sh"><code>
+<span class="token comment"># 获取当下目录的所有文件，遍历打印</span>
+<span class="token assign-left variable">listfile</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">ls</span><span class="token variable">`</span></span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token variable">$listfile</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$file</span>&quot;</span>
+<span class="token keyword">done</span>
+
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 遍历一组值</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">animal</span> <span class="token keyword">in</span> <span class="token string">'dog'</span> <span class="token string">'cat'</span> <span class="token string">'pig'</span>
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$animal</span>&quot;</span>
+<span class="token keyword">done</span>
+
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># seq 用于生成从一个数到另一个数之间的所有整数。</span>
+<span class="token comment"># 用法：seq [选项]... 尾数</span>
+<span class="token comment">#　 或：seq [选项]... 首数 尾数</span>
+<span class="token comment">#　 或：seq [选项]... 首数 增量 尾数</span>
+<span class="token comment"># 借助 seq 的 for 循环 打印 1 到 10 到数字</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">seq</span> <span class="token number">10</span><span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token variable">$i</span> <span class="token comment"># 打印1 到 10</span>
+<span class="token keyword">done</span>
+
+<span class="token comment">#======</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">seq</span> <span class="token number">2</span> <span class="token number">10</span><span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token variable">$i</span> <span class="token comment"># 打印2 到 10</span>
+<span class="token keyword">done</span>
+
+<span class="token comment">#======</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">seq</span> <span class="token number">2</span> <span class="token number">2</span> <span class="token number">10</span><span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token variable">$i</span> <span class="token comment"># 打印2n</span>
+<span class="token keyword">done</span>
+
+</code></pre></div><h2 id="_7-函数"><a href="#_7-函数" class="header-anchor">#</a> 7. 函数</h2> <p>函数是实现一定功能的代码块，函数还是重用代码的一种方式。</p> <ol><li>函数名后面的圆括号中不加任何参数，这点与主流编程语言不相同。</li> <li>函数的完整定义必须置于函数的调用之前。</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code>
+<span class="token function-name function">print_something</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;我是一个函数&quot;</span>
+<span class="token punctuation">}</span>
+print_something <span class="token comment"># 调用</span>
+
+
+<span class="token comment"># 获取函数参数</span>
+<span class="token function-name function">print_something</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;hello <span class="token variable">$1</span>&quot;</span> <span class="token comment"># $1 获取第一个参数</span>
+<span class="token punctuation">}</span>
+print_something Lion <span class="token comment"># Lion 为参数</span>
+
+<span class="token comment"># 函数的返回值</span>
+<span class="token function-name function">print_something</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;hello <span class="token variable">$1</span>&quot;</span>
+    <span class="token builtin class-name">return</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+print_something Lion
+
+<span class="token builtin class-name">echo</span> ‘函数的返回值：<span class="token variable">$?</span>’
+
+</code></pre></div><h3 id="_1-函数的局部变量"><a href="#_1-函数的局部变量" class="header-anchor">#</a> 1. 函数的局部变量</h3> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function-name function">local_global</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">var1</span><span class="token operator">=</span><span class="token string">'local 1'</span> <span class="token comment"># 通过 local 关键字定义局部变量</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;var1 is <span class="token variable">$var1</span>&quot;</span>
+<span class="token punctuation">}</span>
+
+local_global
+</code></pre></div><h3 id="_2-函数重载命令"><a href="#_2-函数重载命令" class="header-anchor">#</a> 2. 函数重载命令</h3> <p>可以用函数来实现命令的重载，也就是说把函数的名字取成与我们通常在命令行用的命令相同的名字，重载需要用到 command 关键字。</p> <div class="language-sh extra-class"><pre class="language-sh"><code>
+<span class="token function-name function">ls</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">command</span> <span class="token function">ls</span> -lh
+<span class="token punctuation">}</span>
+
+<span class="token function">ls</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">3/15/2024, 3:51:11 PM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_1-shell-是什么" class="sidebar-link reco-side-_1-shell-是什么" data-v-cb1513f6>1. shell 是什么</a></li><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_2-编写第一个-shell-脚本" class="sidebar-link reco-side-_2-编写第一个-shell-脚本" data-v-cb1513f6>2. 编写第一个 shell 脚本</a></li><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_3-shell-命令语句" class="sidebar-link reco-side-_3-shell-命令语句" data-v-cb1513f6>3. shell 命令语句</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_1-echo" class="sidebar-link reco-side-_1-echo" data-v-cb1513f6>1. echo</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_2-引号" class="sidebar-link reco-side-_2-引号" data-v-cb1513f6>2. 引号</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_3-变量" class="sidebar-link reco-side-_3-变量" data-v-cb1513f6>3. 变量</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_4-数组" class="sidebar-link reco-side-_4-数组" data-v-cb1513f6>4. 数组</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_5-数学运算" class="sidebar-link reco-side-_5-数学运算" data-v-cb1513f6>5. 数学运算</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_6-read" class="sidebar-link reco-side-_6-read" data-v-cb1513f6>6. read</a></li><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_4-条件语句" class="sidebar-link reco-side-_4-条件语句" data-v-cb1513f6>4. 条件语句</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_1-if-格式" class="sidebar-link reco-side-_1-if-格式" data-v-cb1513f6>1. if 格式</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_2-if-else-格式" class="sidebar-link reco-side-_2-if-else-格式" data-v-cb1513f6>2. if else 格式</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_3-if-else-elif-格式" class="sidebar-link reco-side-_3-if-else-elif-格式" data-v-cb1513f6>3. if else elif 格式</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_4-test-语句" class="sidebar-link reco-side-_4-test-语句" data-v-cb1513f6>4. test 语句</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_5-case-多项分支" class="sidebar-link reco-side-_5-case-多项分支" data-v-cb1513f6>5. case 多项分支</a></li><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_5-shell-中的表达式和运算符" class="sidebar-link reco-side-_5-shell-中的表达式和运算符" data-v-cb1513f6>5. shell 中的表达式和运算符</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_1-判断字符串" class="sidebar-link reco-side-_1-判断字符串" data-v-cb1513f6>1. 判断字符串</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_2-判断数字" class="sidebar-link reco-side-_2-判断数字" data-v-cb1513f6>2. 判断数字</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_3-判断文件" class="sidebar-link reco-side-_3-判断文件" data-v-cb1513f6>3. 判断文件</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_4-逻辑运算符" class="sidebar-link reco-side-_4-逻辑运算符" data-v-cb1513f6>4. 逻辑运算符</a></li><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_6-循环语句" class="sidebar-link reco-side-_6-循环语句" data-v-cb1513f6>6. 循环语句</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_1-while-循环" class="sidebar-link reco-side-_1-while-循环" data-v-cb1513f6>1. while 循环</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_2-until-循环" class="sidebar-link reco-side-_2-until-循环" data-v-cb1513f6>2. until 循环</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_3-for-循环" class="sidebar-link reco-side-_3-for-循环" data-v-cb1513f6>3. for 循环</a></li><li class="level-2" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_7-函数" class="sidebar-link reco-side-_7-函数" data-v-cb1513f6>7. 函数</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_1-函数的局部变量" class="sidebar-link reco-side-_1-函数的局部变量" data-v-cb1513f6>1. 函数的局部变量</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/Shell/01.html#_2-函数重载命令" class="sidebar-link reco-side-_2-函数重载命令" data-v-cb1513f6>2. 函数重载命令</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/jm-garming/assets/js/app.9b9a5a22.js" defer></script><script src="/jm-garming/assets/js/3.14bd5e3b.js" defer></script><script src="/jm-garming/assets/js/1.b59f91fd.js" defer></script><script src="/jm-garming/assets/js/16.c168fa5e.js" defer></script>
+  </body>
+</html>

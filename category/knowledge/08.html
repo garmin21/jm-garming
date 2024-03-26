@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>12-03 co 源码阅读 | Hello Garming</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/jm-garming/favicon.ico">
+    <meta name="description" content="garming个人博客">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/jm-garming/assets/css/0.styles.abb1dbd9.css" as="style"><link rel="preload" href="/jm-garming/assets/js/app.9b9a5a22.js" as="script"><link rel="preload" href="/jm-garming/assets/js/3.14bd5e3b.js" as="script"><link rel="preload" href="/jm-garming/assets/js/1.b59f91fd.js" as="script"><link rel="preload" href="/jm-garming/assets/js/126.1fff4b7c.js" as="script"><link rel="prefetch" href="/jm-garming/assets/js/10.e40a3bbf.js"><link rel="prefetch" href="/jm-garming/assets/js/100.4e10fbc3.js"><link rel="prefetch" href="/jm-garming/assets/js/101.c2fab5ee.js"><link rel="prefetch" href="/jm-garming/assets/js/102.1e8cc990.js"><link rel="prefetch" href="/jm-garming/assets/js/103.708204fa.js"><link rel="prefetch" href="/jm-garming/assets/js/104.a9dc98aa.js"><link rel="prefetch" href="/jm-garming/assets/js/105.8a853bd3.js"><link rel="prefetch" href="/jm-garming/assets/js/106.36fbde3a.js"><link rel="prefetch" href="/jm-garming/assets/js/107.308a4b59.js"><link rel="prefetch" href="/jm-garming/assets/js/108.5c50192f.js"><link rel="prefetch" href="/jm-garming/assets/js/109.cae6bcc4.js"><link rel="prefetch" href="/jm-garming/assets/js/11.f2156d63.js"><link rel="prefetch" href="/jm-garming/assets/js/110.99ddd0de.js"><link rel="prefetch" href="/jm-garming/assets/js/111.35e8e59c.js"><link rel="prefetch" href="/jm-garming/assets/js/112.f850ea28.js"><link rel="prefetch" href="/jm-garming/assets/js/113.8e77cc58.js"><link rel="prefetch" href="/jm-garming/assets/js/114.d61e5534.js"><link rel="prefetch" href="/jm-garming/assets/js/115.9645dcb4.js"><link rel="prefetch" href="/jm-garming/assets/js/116.547a0706.js"><link rel="prefetch" href="/jm-garming/assets/js/117.cc4ee48a.js"><link rel="prefetch" href="/jm-garming/assets/js/118.a84c4919.js"><link rel="prefetch" href="/jm-garming/assets/js/119.53202ac7.js"><link rel="prefetch" href="/jm-garming/assets/js/12.b537e666.js"><link rel="prefetch" href="/jm-garming/assets/js/120.8676a1b1.js"><link rel="prefetch" href="/jm-garming/assets/js/121.582d9be1.js"><link rel="prefetch" href="/jm-garming/assets/js/122.acc6b787.js"><link rel="prefetch" href="/jm-garming/assets/js/123.0363f4d2.js"><link rel="prefetch" href="/jm-garming/assets/js/124.df5020df.js"><link rel="prefetch" href="/jm-garming/assets/js/125.477ec94c.js"><link rel="prefetch" href="/jm-garming/assets/js/127.4efee3cc.js"><link rel="prefetch" href="/jm-garming/assets/js/128.e4a6b3f7.js"><link rel="prefetch" href="/jm-garming/assets/js/129.937c34f1.js"><link rel="prefetch" href="/jm-garming/assets/js/13.2b45b995.js"><link rel="prefetch" href="/jm-garming/assets/js/130.76d19f45.js"><link rel="prefetch" href="/jm-garming/assets/js/131.d63e5021.js"><link rel="prefetch" href="/jm-garming/assets/js/132.3a10dbef.js"><link rel="prefetch" href="/jm-garming/assets/js/133.4c9e6d7e.js"><link rel="prefetch" href="/jm-garming/assets/js/134.6685fba6.js"><link rel="prefetch" href="/jm-garming/assets/js/135.7d729be7.js"><link rel="prefetch" href="/jm-garming/assets/js/136.16ae8755.js"><link rel="prefetch" href="/jm-garming/assets/js/137.075d3d5c.js"><link rel="prefetch" href="/jm-garming/assets/js/138.06fe59fc.js"><link rel="prefetch" href="/jm-garming/assets/js/139.6aee5c9f.js"><link rel="prefetch" href="/jm-garming/assets/js/14.7e84021d.js"><link rel="prefetch" href="/jm-garming/assets/js/140.66fb11ba.js"><link rel="prefetch" href="/jm-garming/assets/js/141.41f70dd4.js"><link rel="prefetch" href="/jm-garming/assets/js/142.c81198f2.js"><link rel="prefetch" href="/jm-garming/assets/js/143.5a42a9dd.js"><link rel="prefetch" href="/jm-garming/assets/js/144.8079f040.js"><link rel="prefetch" href="/jm-garming/assets/js/145.c9a9c77d.js"><link rel="prefetch" href="/jm-garming/assets/js/146.18d65eb5.js"><link rel="prefetch" href="/jm-garming/assets/js/147.399e0989.js"><link rel="prefetch" href="/jm-garming/assets/js/148.1100f11d.js"><link rel="prefetch" href="/jm-garming/assets/js/149.822f0e54.js"><link rel="prefetch" href="/jm-garming/assets/js/15.8b32dc6b.js"><link rel="prefetch" href="/jm-garming/assets/js/150.488b7490.js"><link rel="prefetch" href="/jm-garming/assets/js/151.587a2193.js"><link rel="prefetch" href="/jm-garming/assets/js/152.867cdf23.js"><link rel="prefetch" href="/jm-garming/assets/js/153.3387108d.js"><link rel="prefetch" href="/jm-garming/assets/js/154.2fc43ec8.js"><link rel="prefetch" href="/jm-garming/assets/js/155.c140b7bf.js"><link rel="prefetch" href="/jm-garming/assets/js/156.b58a8fe6.js"><link rel="prefetch" href="/jm-garming/assets/js/157.38698f0b.js"><link rel="prefetch" href="/jm-garming/assets/js/158.3d3cc993.js"><link rel="prefetch" href="/jm-garming/assets/js/159.5c50d790.js"><link rel="prefetch" href="/jm-garming/assets/js/16.c168fa5e.js"><link rel="prefetch" href="/jm-garming/assets/js/17.86c58aef.js"><link rel="prefetch" href="/jm-garming/assets/js/18.d64fecb1.js"><link rel="prefetch" href="/jm-garming/assets/js/19.ff939e98.js"><link rel="prefetch" href="/jm-garming/assets/js/20.8e124780.js"><link rel="prefetch" href="/jm-garming/assets/js/21.896df463.js"><link rel="prefetch" href="/jm-garming/assets/js/22.f138da30.js"><link rel="prefetch" href="/jm-garming/assets/js/23.2ae4a8a2.js"><link rel="prefetch" href="/jm-garming/assets/js/24.c84a8c00.js"><link rel="prefetch" href="/jm-garming/assets/js/25.d8a6b401.js"><link rel="prefetch" href="/jm-garming/assets/js/26.71d53b1e.js"><link rel="prefetch" href="/jm-garming/assets/js/27.65f33ce3.js"><link rel="prefetch" href="/jm-garming/assets/js/28.e6ae543e.js"><link rel="prefetch" href="/jm-garming/assets/js/29.4b209cb4.js"><link rel="prefetch" href="/jm-garming/assets/js/30.d4ee29b9.js"><link rel="prefetch" href="/jm-garming/assets/js/31.7895a52e.js"><link rel="prefetch" href="/jm-garming/assets/js/32.d7b935ec.js"><link rel="prefetch" href="/jm-garming/assets/js/33.23cd4816.js"><link rel="prefetch" href="/jm-garming/assets/js/34.9dee7862.js"><link rel="prefetch" href="/jm-garming/assets/js/35.4a45253a.js"><link rel="prefetch" href="/jm-garming/assets/js/36.9316d5a5.js"><link rel="prefetch" href="/jm-garming/assets/js/37.10b998bb.js"><link rel="prefetch" href="/jm-garming/assets/js/38.190fd401.js"><link rel="prefetch" href="/jm-garming/assets/js/39.f11844ea.js"><link rel="prefetch" href="/jm-garming/assets/js/4.87b4cf48.js"><link rel="prefetch" href="/jm-garming/assets/js/40.e3fab42b.js"><link rel="prefetch" href="/jm-garming/assets/js/41.60eb3301.js"><link rel="prefetch" href="/jm-garming/assets/js/42.8d8809d7.js"><link rel="prefetch" href="/jm-garming/assets/js/43.a10b606d.js"><link rel="prefetch" href="/jm-garming/assets/js/44.27d0ea11.js"><link rel="prefetch" href="/jm-garming/assets/js/45.4d5c90bf.js"><link rel="prefetch" href="/jm-garming/assets/js/46.7510c610.js"><link rel="prefetch" href="/jm-garming/assets/js/47.95fc715b.js"><link rel="prefetch" href="/jm-garming/assets/js/48.d26e76a3.js"><link rel="prefetch" href="/jm-garming/assets/js/49.11c6ba4d.js"><link rel="prefetch" href="/jm-garming/assets/js/5.70cd3177.js"><link rel="prefetch" href="/jm-garming/assets/js/50.38b7df02.js"><link rel="prefetch" href="/jm-garming/assets/js/51.736b2e93.js"><link rel="prefetch" href="/jm-garming/assets/js/52.bff17156.js"><link rel="prefetch" href="/jm-garming/assets/js/53.11f404c7.js"><link rel="prefetch" href="/jm-garming/assets/js/54.820787d8.js"><link rel="prefetch" href="/jm-garming/assets/js/55.371ef653.js"><link rel="prefetch" href="/jm-garming/assets/js/56.fbb9b336.js"><link rel="prefetch" href="/jm-garming/assets/js/57.7f246151.js"><link rel="prefetch" href="/jm-garming/assets/js/58.e94d3925.js"><link rel="prefetch" href="/jm-garming/assets/js/59.842d79c1.js"><link rel="prefetch" href="/jm-garming/assets/js/6.7fc18ab6.js"><link rel="prefetch" href="/jm-garming/assets/js/60.c7cf4418.js"><link rel="prefetch" href="/jm-garming/assets/js/61.f2a7862f.js"><link rel="prefetch" href="/jm-garming/assets/js/62.d3c826e8.js"><link rel="prefetch" href="/jm-garming/assets/js/63.c582c4fa.js"><link rel="prefetch" href="/jm-garming/assets/js/64.cfae01e1.js"><link rel="prefetch" href="/jm-garming/assets/js/65.edb2c6a0.js"><link rel="prefetch" href="/jm-garming/assets/js/66.3031df1e.js"><link rel="prefetch" href="/jm-garming/assets/js/67.85eb5394.js"><link rel="prefetch" href="/jm-garming/assets/js/68.0d8945b1.js"><link rel="prefetch" href="/jm-garming/assets/js/69.7863ea6f.js"><link rel="prefetch" href="/jm-garming/assets/js/7.9c069c23.js"><link rel="prefetch" href="/jm-garming/assets/js/70.9191fc83.js"><link rel="prefetch" href="/jm-garming/assets/js/71.568f8815.js"><link rel="prefetch" href="/jm-garming/assets/js/72.422620cf.js"><link rel="prefetch" href="/jm-garming/assets/js/73.e362c9f4.js"><link rel="prefetch" href="/jm-garming/assets/js/74.fcf0e844.js"><link rel="prefetch" href="/jm-garming/assets/js/75.69042732.js"><link rel="prefetch" href="/jm-garming/assets/js/76.71c5acde.js"><link rel="prefetch" href="/jm-garming/assets/js/77.30aa67a6.js"><link rel="prefetch" href="/jm-garming/assets/js/78.b8941992.js"><link rel="prefetch" href="/jm-garming/assets/js/79.0631afe2.js"><link rel="prefetch" href="/jm-garming/assets/js/8.0e5dc4b6.js"><link rel="prefetch" href="/jm-garming/assets/js/80.5677ebf0.js"><link rel="prefetch" href="/jm-garming/assets/js/81.5d791d87.js"><link rel="prefetch" href="/jm-garming/assets/js/82.0884b9d9.js"><link rel="prefetch" href="/jm-garming/assets/js/83.39f1cc51.js"><link rel="prefetch" href="/jm-garming/assets/js/84.31b3d256.js"><link rel="prefetch" href="/jm-garming/assets/js/85.acba78bb.js"><link rel="prefetch" href="/jm-garming/assets/js/86.b76ebae0.js"><link rel="prefetch" href="/jm-garming/assets/js/87.e394baba.js"><link rel="prefetch" href="/jm-garming/assets/js/88.3524832f.js"><link rel="prefetch" href="/jm-garming/assets/js/89.fe994950.js"><link rel="prefetch" href="/jm-garming/assets/js/9.65f9127b.js"><link rel="prefetch" href="/jm-garming/assets/js/90.6acf3725.js"><link rel="prefetch" href="/jm-garming/assets/js/91.9fc17ce9.js"><link rel="prefetch" href="/jm-garming/assets/js/92.a97fffdb.js"><link rel="prefetch" href="/jm-garming/assets/js/93.10b0ab12.js"><link rel="prefetch" href="/jm-garming/assets/js/94.56b34047.js"><link rel="prefetch" href="/jm-garming/assets/js/95.e4af4ad4.js"><link rel="prefetch" href="/jm-garming/assets/js/96.861712cf.js"><link rel="prefetch" href="/jm-garming/assets/js/97.d91a75f3.js"><link rel="prefetch" href="/jm-garming/assets/js/98.e9c3f0db.js"><link rel="prefetch" href="/jm-garming/assets/js/99.8a2f0294.js">
+    <link rel="stylesheet" href="/jm-garming/assets/css/0.styles.abb1dbd9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Hello Garming</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>garming个人博客</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>garMing</span>
+            
+          <!---->
+          2024
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jm-garming/" class="home-link router-link-active"><img src="/jm-garming/jm.jpg" alt="Hello Garming" class="logo"> <span class="site-name">Hello Garming</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-suggestion"></i>
+      收藏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/code-quality/" class="nav-link"><i class="undefined"></i>
+  代码质量
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/lighthouse/" class="nav-link"><i class="undefined"></i>
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/ssr-render/" class="nav-link"><i class="undefined"></i>
+  服务端渲染
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/framework/" class="nav-link"><i class="undefined"></i>
+  前端架构
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      F2E基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/axios/" class="nav-link"><i class="undefined"></i>
+  axios
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/构建工具/" class="nav-link"><i class="undefined"></i>
+  构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/概念/" class="nav-link"><i class="undefined"></i>
+  概念
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Error/" class="nav-link"><i class="undefined"></i>
+  Error
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/框架/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/可视化/" class="nav-link"><i class="undefined"></i>
+  可视化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/面试题/" class="nav-link"><i class="undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/案例研究/" class="nav-link"><i class="undefined"></i>
+  案例研究
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Node Package Manager/" class="nav-link"><i class="undefined"></i>
+  Node Package Manager
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/vscode/" class="nav-link"><i class="undefined"></i>
+  vscode
+</a></li></ul></div></div><div class="nav-item"><a href="/jm-garming/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/jm-garming/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <h3 class="name" data-v-39576ba9>
+    garMing
+  </h3> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>147</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>26</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9><li class="social-item" data-v-39576ba9><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-39576ba9></i></li><li class="social-item" data-v-39576ba9><i class="iconfont reco-npm" style="color:#f26d6d;" data-v-39576ba9></i></li><li class="social-item" data-v-39576ba9><i class="iconfont reco-npm" style="color:#abbd81;" data-v-39576ba9></i></li></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-suggestion"></i>
+      收藏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/code-quality/" class="nav-link"><i class="undefined"></i>
+  代码质量
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/lighthouse/" class="nav-link"><i class="undefined"></i>
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/ssr-render/" class="nav-link"><i class="undefined"></i>
+  服务端渲染
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/framework/" class="nav-link"><i class="undefined"></i>
+  前端架构
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      F2E基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/axios/" class="nav-link"><i class="undefined"></i>
+  axios
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/构建工具/" class="nav-link"><i class="undefined"></i>
+  构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/概念/" class="nav-link"><i class="undefined"></i>
+  概念
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Error/" class="nav-link"><i class="undefined"></i>
+  Error
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/框架/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/可视化/" class="nav-link"><i class="undefined"></i>
+  可视化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/面试题/" class="nav-link"><i class="undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/案例研究/" class="nav-link"><i class="undefined"></i>
+  案例研究
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Node Package Manager/" class="nav-link"><i class="undefined"></i>
+  Node Package Manager
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/vscode/" class="nav-link"><i class="undefined"></i>
+  vscode
+</a></li></ul></div></div><div class="nav-item"><a href="/jm-garming/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/jm-garming/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>12-03 co 源码阅读</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>garMing</span>
+            
+          <!---->
+          2024
+        </a></span></div></div> <div data-v-130b300a><main class="page"><section><div class="page-title"><h1 class="title">12-03 co 源码阅读</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>garMing</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>12/3/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>案例研究</span></i></div></div> <div class="theme-reco-content content__default"><ol><li>https://github.com/tj/co/blob/master/index.js</li> <li>https://juejin.cn/post/6844904088220467213#heading-11</li> <li>https://es6.ruanyifeng.com/#docs/generator-async</li> <li>https://es6.ruanyifeng.com/#docs/async</li> <li>https://juejin.cn/post/6844903695335817229</li> <li>https://www.yuque.com/ruochuan12/fnfzu7/getutc</li></ol> <h3 id="简单使用"><a href="#简单使用" class="header-anchor">#</a> 简单使用</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">co</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">yield</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>源码执行步骤:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">co</span><span class="token punctuation">(</span><span class="token parameter">gen</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> ctx <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token comment">// 获取除了第一位参数是this 以外的全部参数，返回数组的表示形式</span>
+    <span class="token keyword">var</span> args <span class="token operator">=</span> <span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// gen = gen.apply(ctx, args); 执行下生成器，返回一个生成器实例</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> gen <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> gen <span class="token operator">=</span> <span class="token function">gen</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> args<span class="token punctuation">)</span>
+        <span class="token comment">// 防止修改next 函数</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>gen <span class="token operator">||</span> <span class="token keyword">typeof</span> gen<span class="token punctuation">.</span>next <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>gen<span class="token punctuation">)</span>
+
+        <span class="token function">onFulfilled</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">function</span> <span class="token function">onFulfilled</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> ret
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token comment">// {value: '生成器函数返回的值', done: 'next 执行下一步的条件'}</span>
+                ret <span class="token operator">=</span> gen<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">next</span><span class="token punctuation">(</span>ret<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">function</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token parameter">ret</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ret<span class="token punctuation">.</span>done<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>ret<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+            <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token function">toPromise</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> ret<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&amp;&amp;</span> <span class="token function">isPromise</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>onFulfilled<span class="token punctuation">,</span> onRejected<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token function">onRejected</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span>
+                    <span class="token string">'You may only yield a function, promise, generator, array, or object, '</span> <span class="token operator">+</span>
+                        <span class="token string">'but the following object was passed: &quot;'</span> <span class="token operator">+</span>
+                        <span class="token function">String</span><span class="token punctuation">(</span>ret<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token operator">+</span>
+                        <span class="token string">'&quot;'</span>
+                <span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol><li>co 函数，首先拿到 this ,以及除第一位是 this 以外的剩余参数</li> <li>返回一个 promise 内部判断 gen 是否是一个函数， 是一个函数，返回一个生成器实例</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">gen</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token function">gen</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 这就是返回了一个生成器实例</span>
+</code></pre></div><ol start="3"><li>判断防止修改 next 函数</li> <li>执行 onFulfilled 函数, 如果是一个 promise 对象就 reslove 返回值，内部执行 next 函数， 在 next 中将其包装为一个 promise , 并且通过 then 方法改变 promise 的状态，拿到 <code>yield Promise.resolve(true);</code> 的结果，返回的是一个 对象</li> <li>再次执行 next 函数，把返回的对象传入, 内部判断此时 done 已经是 true ,表示最后一个了，执行 reslove 改变 promise 状态，返回其 value 值</li></ol> <h3 id="co-wrap"><a href="#co-wrap" class="header-anchor">#</a> co.wrap</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> fn <span class="token operator">=</span> co<span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">yield</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span>
+<span class="token comment">/**
+ * 
+ * ƒ createPromise() {
+        return co.call(this, fn.apply(this, arguments));
+    }
+    *
+    */</span>
+
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>提供的这个函数只是简单的返回了一个 执行 co 函数</p> <p>源码执行步骤：</p> <div class="language-js extra-class"><pre class="language-js"><code>co<span class="token punctuation">.</span><span class="token function-variable function">wrap</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 往函数对象上添加了一个 生成器函数</span>
+    createPromise<span class="token punctuation">.</span>__generatorFunction__ <span class="token operator">=</span> fn
+    <span class="token comment">// 返回包装 co 函数</span>
+    <span class="token keyword">return</span> createPromise
+    <span class="token keyword">function</span> <span class="token function">createPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//   这里的执行接 co 函数的执行，最后返回一个 promise 对象，可以通过 then 方法拿到值</span>
+        <span class="token keyword">return</span> <span class="token function">co</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="co-源码里面针对了几种类型的数据-将其转化为-promise-对象"><a href="#co-源码里面针对了几种类型的数据-将其转化为-promise-对象" class="header-anchor">#</a> co 源码里面针对了几种类型的数据，将其转化为 promise 对象</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">co</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token string">'成功返回的值'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>拿一个源码的看，这里只是将 Promise.reslove 改为了一个普通函数</p> <p>源码执行过程:</p> <ol><li>前面的执行都是一样的，跳过前面的几步</li> <li><code>toPromise</code> 函数执行，内部判断，现在 <code>yield value</code> 是一个函数，<code>toPromise</code> 执行完毕,返回 next 函数</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">toPromise</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>obj<span class="token punctuation">)</span> <span class="token keyword">return</span> obj
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isPromise</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> obj
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isGeneratorFunction</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">isGenerator</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">co</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> obj<span class="token punctuation">)</span>
+    <span class="token comment">//  执行 thunkToPromise, 返回是一个promise 对象</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'function'</span> <span class="token operator">==</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">thunkToPromise</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> obj<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">arrayToPromise</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> obj<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">objectToPromise</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> obj<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> obj
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">thunkToPromise</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> ctx <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token comment">//   返回的promise 对象</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> res <span class="token operator">=</span> <span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="3"><li>返回一个 promise 对象后，执行 then 改变当前 co 里面 promise 对象的状态，</li> <li>内部执行 onFulfilled ，内部执行 gen.next 返回处理好的值 <code>{value: xxx, done: xxx}</code></li> <li>最后再次跳用 next(ret), 将值 reslove 出去，返回</li></ol></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">4/5/2023, 10:34:08 PM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/knowledge/08.html#简单使用" class="sidebar-link reco-side-简单使用" data-v-cb1513f6>简单使用</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/knowledge/08.html#co-wrap" class="sidebar-link reco-side-co-wrap" data-v-cb1513f6>co.wrap</a></li><li class="level-3" data-v-cb1513f6><a href="/jm-garming/category/knowledge/08.html#co-源码里面针对了几种类型的数据-将其转化为-promise-对象" class="sidebar-link reco-side-co-源码里面针对了几种类型的数据-将其转化为-promise-对象" data-v-cb1513f6>co 源码里面针对了几种类型的数据，将其转化为 promise 对象</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/jm-garming/assets/js/app.9b9a5a22.js" defer></script><script src="/jm-garming/assets/js/3.14bd5e3b.js" defer></script><script src="/jm-garming/assets/js/1.b59f91fd.js" defer></script><script src="/jm-garming/assets/js/126.1fff4b7c.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Webpack4.x：配置解析(resolve) | Hello Garming</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/jm-garming/favicon.ico">
+    <meta name="description" content="garming个人博客">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/jm-garming/assets/css/0.styles.abb1dbd9.css" as="style"><link rel="preload" href="/jm-garming/assets/js/app.9b9a5a22.js" as="script"><link rel="preload" href="/jm-garming/assets/js/3.14bd5e3b.js" as="script"><link rel="preload" href="/jm-garming/assets/js/1.b59f91fd.js" as="script"><link rel="preload" href="/jm-garming/assets/js/39.f11844ea.js" as="script"><link rel="prefetch" href="/jm-garming/assets/js/10.e40a3bbf.js"><link rel="prefetch" href="/jm-garming/assets/js/100.4e10fbc3.js"><link rel="prefetch" href="/jm-garming/assets/js/101.c2fab5ee.js"><link rel="prefetch" href="/jm-garming/assets/js/102.1e8cc990.js"><link rel="prefetch" href="/jm-garming/assets/js/103.708204fa.js"><link rel="prefetch" href="/jm-garming/assets/js/104.a9dc98aa.js"><link rel="prefetch" href="/jm-garming/assets/js/105.8a853bd3.js"><link rel="prefetch" href="/jm-garming/assets/js/106.36fbde3a.js"><link rel="prefetch" href="/jm-garming/assets/js/107.308a4b59.js"><link rel="prefetch" href="/jm-garming/assets/js/108.5c50192f.js"><link rel="prefetch" href="/jm-garming/assets/js/109.cae6bcc4.js"><link rel="prefetch" href="/jm-garming/assets/js/11.f2156d63.js"><link rel="prefetch" href="/jm-garming/assets/js/110.99ddd0de.js"><link rel="prefetch" href="/jm-garming/assets/js/111.35e8e59c.js"><link rel="prefetch" href="/jm-garming/assets/js/112.f850ea28.js"><link rel="prefetch" href="/jm-garming/assets/js/113.8e77cc58.js"><link rel="prefetch" href="/jm-garming/assets/js/114.d61e5534.js"><link rel="prefetch" href="/jm-garming/assets/js/115.9645dcb4.js"><link rel="prefetch" href="/jm-garming/assets/js/116.547a0706.js"><link rel="prefetch" href="/jm-garming/assets/js/117.cc4ee48a.js"><link rel="prefetch" href="/jm-garming/assets/js/118.a84c4919.js"><link rel="prefetch" href="/jm-garming/assets/js/119.53202ac7.js"><link rel="prefetch" href="/jm-garming/assets/js/12.b537e666.js"><link rel="prefetch" href="/jm-garming/assets/js/120.8676a1b1.js"><link rel="prefetch" href="/jm-garming/assets/js/121.582d9be1.js"><link rel="prefetch" href="/jm-garming/assets/js/122.acc6b787.js"><link rel="prefetch" href="/jm-garming/assets/js/123.0363f4d2.js"><link rel="prefetch" href="/jm-garming/assets/js/124.df5020df.js"><link rel="prefetch" href="/jm-garming/assets/js/125.477ec94c.js"><link rel="prefetch" href="/jm-garming/assets/js/126.1fff4b7c.js"><link rel="prefetch" href="/jm-garming/assets/js/127.4efee3cc.js"><link rel="prefetch" href="/jm-garming/assets/js/128.e4a6b3f7.js"><link rel="prefetch" href="/jm-garming/assets/js/129.937c34f1.js"><link rel="prefetch" href="/jm-garming/assets/js/13.2b45b995.js"><link rel="prefetch" href="/jm-garming/assets/js/130.76d19f45.js"><link rel="prefetch" href="/jm-garming/assets/js/131.d63e5021.js"><link rel="prefetch" href="/jm-garming/assets/js/132.3a10dbef.js"><link rel="prefetch" href="/jm-garming/assets/js/133.4c9e6d7e.js"><link rel="prefetch" href="/jm-garming/assets/js/134.6685fba6.js"><link rel="prefetch" href="/jm-garming/assets/js/135.7d729be7.js"><link rel="prefetch" href="/jm-garming/assets/js/136.16ae8755.js"><link rel="prefetch" href="/jm-garming/assets/js/137.075d3d5c.js"><link rel="prefetch" href="/jm-garming/assets/js/138.06fe59fc.js"><link rel="prefetch" href="/jm-garming/assets/js/139.6aee5c9f.js"><link rel="prefetch" href="/jm-garming/assets/js/14.7e84021d.js"><link rel="prefetch" href="/jm-garming/assets/js/140.66fb11ba.js"><link rel="prefetch" href="/jm-garming/assets/js/141.41f70dd4.js"><link rel="prefetch" href="/jm-garming/assets/js/142.c81198f2.js"><link rel="prefetch" href="/jm-garming/assets/js/143.5a42a9dd.js"><link rel="prefetch" href="/jm-garming/assets/js/144.8079f040.js"><link rel="prefetch" href="/jm-garming/assets/js/145.c9a9c77d.js"><link rel="prefetch" href="/jm-garming/assets/js/146.18d65eb5.js"><link rel="prefetch" href="/jm-garming/assets/js/147.399e0989.js"><link rel="prefetch" href="/jm-garming/assets/js/148.1100f11d.js"><link rel="prefetch" href="/jm-garming/assets/js/149.822f0e54.js"><link rel="prefetch" href="/jm-garming/assets/js/15.8b32dc6b.js"><link rel="prefetch" href="/jm-garming/assets/js/150.488b7490.js"><link rel="prefetch" href="/jm-garming/assets/js/151.587a2193.js"><link rel="prefetch" href="/jm-garming/assets/js/152.867cdf23.js"><link rel="prefetch" href="/jm-garming/assets/js/153.3387108d.js"><link rel="prefetch" href="/jm-garming/assets/js/154.2fc43ec8.js"><link rel="prefetch" href="/jm-garming/assets/js/155.c140b7bf.js"><link rel="prefetch" href="/jm-garming/assets/js/156.b58a8fe6.js"><link rel="prefetch" href="/jm-garming/assets/js/157.38698f0b.js"><link rel="prefetch" href="/jm-garming/assets/js/158.3d3cc993.js"><link rel="prefetch" href="/jm-garming/assets/js/159.5c50d790.js"><link rel="prefetch" href="/jm-garming/assets/js/16.c168fa5e.js"><link rel="prefetch" href="/jm-garming/assets/js/17.86c58aef.js"><link rel="prefetch" href="/jm-garming/assets/js/18.d64fecb1.js"><link rel="prefetch" href="/jm-garming/assets/js/19.ff939e98.js"><link rel="prefetch" href="/jm-garming/assets/js/20.8e124780.js"><link rel="prefetch" href="/jm-garming/assets/js/21.896df463.js"><link rel="prefetch" href="/jm-garming/assets/js/22.f138da30.js"><link rel="prefetch" href="/jm-garming/assets/js/23.2ae4a8a2.js"><link rel="prefetch" href="/jm-garming/assets/js/24.c84a8c00.js"><link rel="prefetch" href="/jm-garming/assets/js/25.d8a6b401.js"><link rel="prefetch" href="/jm-garming/assets/js/26.71d53b1e.js"><link rel="prefetch" href="/jm-garming/assets/js/27.65f33ce3.js"><link rel="prefetch" href="/jm-garming/assets/js/28.e6ae543e.js"><link rel="prefetch" href="/jm-garming/assets/js/29.4b209cb4.js"><link rel="prefetch" href="/jm-garming/assets/js/30.d4ee29b9.js"><link rel="prefetch" href="/jm-garming/assets/js/31.7895a52e.js"><link rel="prefetch" href="/jm-garming/assets/js/32.d7b935ec.js"><link rel="prefetch" href="/jm-garming/assets/js/33.23cd4816.js"><link rel="prefetch" href="/jm-garming/assets/js/34.9dee7862.js"><link rel="prefetch" href="/jm-garming/assets/js/35.4a45253a.js"><link rel="prefetch" href="/jm-garming/assets/js/36.9316d5a5.js"><link rel="prefetch" href="/jm-garming/assets/js/37.10b998bb.js"><link rel="prefetch" href="/jm-garming/assets/js/38.190fd401.js"><link rel="prefetch" href="/jm-garming/assets/js/4.87b4cf48.js"><link rel="prefetch" href="/jm-garming/assets/js/40.e3fab42b.js"><link rel="prefetch" href="/jm-garming/assets/js/41.60eb3301.js"><link rel="prefetch" href="/jm-garming/assets/js/42.8d8809d7.js"><link rel="prefetch" href="/jm-garming/assets/js/43.a10b606d.js"><link rel="prefetch" href="/jm-garming/assets/js/44.27d0ea11.js"><link rel="prefetch" href="/jm-garming/assets/js/45.4d5c90bf.js"><link rel="prefetch" href="/jm-garming/assets/js/46.7510c610.js"><link rel="prefetch" href="/jm-garming/assets/js/47.95fc715b.js"><link rel="prefetch" href="/jm-garming/assets/js/48.d26e76a3.js"><link rel="prefetch" href="/jm-garming/assets/js/49.11c6ba4d.js"><link rel="prefetch" href="/jm-garming/assets/js/5.70cd3177.js"><link rel="prefetch" href="/jm-garming/assets/js/50.38b7df02.js"><link rel="prefetch" href="/jm-garming/assets/js/51.736b2e93.js"><link rel="prefetch" href="/jm-garming/assets/js/52.bff17156.js"><link rel="prefetch" href="/jm-garming/assets/js/53.11f404c7.js"><link rel="prefetch" href="/jm-garming/assets/js/54.820787d8.js"><link rel="prefetch" href="/jm-garming/assets/js/55.371ef653.js"><link rel="prefetch" href="/jm-garming/assets/js/56.fbb9b336.js"><link rel="prefetch" href="/jm-garming/assets/js/57.7f246151.js"><link rel="prefetch" href="/jm-garming/assets/js/58.e94d3925.js"><link rel="prefetch" href="/jm-garming/assets/js/59.842d79c1.js"><link rel="prefetch" href="/jm-garming/assets/js/6.7fc18ab6.js"><link rel="prefetch" href="/jm-garming/assets/js/60.c7cf4418.js"><link rel="prefetch" href="/jm-garming/assets/js/61.f2a7862f.js"><link rel="prefetch" href="/jm-garming/assets/js/62.d3c826e8.js"><link rel="prefetch" href="/jm-garming/assets/js/63.c582c4fa.js"><link rel="prefetch" href="/jm-garming/assets/js/64.cfae01e1.js"><link rel="prefetch" href="/jm-garming/assets/js/65.edb2c6a0.js"><link rel="prefetch" href="/jm-garming/assets/js/66.3031df1e.js"><link rel="prefetch" href="/jm-garming/assets/js/67.85eb5394.js"><link rel="prefetch" href="/jm-garming/assets/js/68.0d8945b1.js"><link rel="prefetch" href="/jm-garming/assets/js/69.7863ea6f.js"><link rel="prefetch" href="/jm-garming/assets/js/7.9c069c23.js"><link rel="prefetch" href="/jm-garming/assets/js/70.9191fc83.js"><link rel="prefetch" href="/jm-garming/assets/js/71.568f8815.js"><link rel="prefetch" href="/jm-garming/assets/js/72.422620cf.js"><link rel="prefetch" href="/jm-garming/assets/js/73.e362c9f4.js"><link rel="prefetch" href="/jm-garming/assets/js/74.fcf0e844.js"><link rel="prefetch" href="/jm-garming/assets/js/75.69042732.js"><link rel="prefetch" href="/jm-garming/assets/js/76.71c5acde.js"><link rel="prefetch" href="/jm-garming/assets/js/77.30aa67a6.js"><link rel="prefetch" href="/jm-garming/assets/js/78.b8941992.js"><link rel="prefetch" href="/jm-garming/assets/js/79.0631afe2.js"><link rel="prefetch" href="/jm-garming/assets/js/8.0e5dc4b6.js"><link rel="prefetch" href="/jm-garming/assets/js/80.5677ebf0.js"><link rel="prefetch" href="/jm-garming/assets/js/81.5d791d87.js"><link rel="prefetch" href="/jm-garming/assets/js/82.0884b9d9.js"><link rel="prefetch" href="/jm-garming/assets/js/83.39f1cc51.js"><link rel="prefetch" href="/jm-garming/assets/js/84.31b3d256.js"><link rel="prefetch" href="/jm-garming/assets/js/85.acba78bb.js"><link rel="prefetch" href="/jm-garming/assets/js/86.b76ebae0.js"><link rel="prefetch" href="/jm-garming/assets/js/87.e394baba.js"><link rel="prefetch" href="/jm-garming/assets/js/88.3524832f.js"><link rel="prefetch" href="/jm-garming/assets/js/89.fe994950.js"><link rel="prefetch" href="/jm-garming/assets/js/9.65f9127b.js"><link rel="prefetch" href="/jm-garming/assets/js/90.6acf3725.js"><link rel="prefetch" href="/jm-garming/assets/js/91.9fc17ce9.js"><link rel="prefetch" href="/jm-garming/assets/js/92.a97fffdb.js"><link rel="prefetch" href="/jm-garming/assets/js/93.10b0ab12.js"><link rel="prefetch" href="/jm-garming/assets/js/94.56b34047.js"><link rel="prefetch" href="/jm-garming/assets/js/95.e4af4ad4.js"><link rel="prefetch" href="/jm-garming/assets/js/96.861712cf.js"><link rel="prefetch" href="/jm-garming/assets/js/97.d91a75f3.js"><link rel="prefetch" href="/jm-garming/assets/js/98.e9c3f0db.js"><link rel="prefetch" href="/jm-garming/assets/js/99.8a2f0294.js">
+    <link rel="stylesheet" href="/jm-garming/assets/css/0.styles.abb1dbd9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Hello Garming</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>garming个人博客</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>garMing</span>
+            
+          <!---->
+          2024
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jm-garming/" class="home-link router-link-active"><img src="/jm-garming/jm.jpg" alt="Hello Garming" class="logo"> <span class="site-name">Hello Garming</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-suggestion"></i>
+      收藏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/code-quality/" class="nav-link"><i class="undefined"></i>
+  代码质量
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/lighthouse/" class="nav-link"><i class="undefined"></i>
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/ssr-render/" class="nav-link"><i class="undefined"></i>
+  服务端渲染
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/framework/" class="nav-link"><i class="undefined"></i>
+  前端架构
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      F2E基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/axios/" class="nav-link"><i class="undefined"></i>
+  axios
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/构建工具/" class="nav-link"><i class="undefined"></i>
+  构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/概念/" class="nav-link"><i class="undefined"></i>
+  概念
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Error/" class="nav-link"><i class="undefined"></i>
+  Error
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/框架/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/可视化/" class="nav-link"><i class="undefined"></i>
+  可视化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/面试题/" class="nav-link"><i class="undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/案例研究/" class="nav-link"><i class="undefined"></i>
+  案例研究
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Node Package Manager/" class="nav-link"><i class="undefined"></i>
+  Node Package Manager
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/vscode/" class="nav-link"><i class="undefined"></i>
+  vscode
+</a></li></ul></div></div><div class="nav-item"><a href="/jm-garming/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/jm-garming/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <h3 class="name" data-v-39576ba9>
+    garMing
+  </h3> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>147</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>26</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9><li class="social-item" data-v-39576ba9><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-39576ba9></i></li><li class="social-item" data-v-39576ba9><i class="iconfont reco-npm" style="color:#f26d6d;" data-v-39576ba9></i></li><li class="social-item" data-v-39576ba9><i class="iconfont reco-npm" style="color:#abbd81;" data-v-39576ba9></i></li></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-suggestion"></i>
+      收藏
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/code-quality/" class="nav-link"><i class="undefined"></i>
+  代码质量
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/lighthouse/" class="nav-link"><i class="undefined"></i>
+  性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/ssr-render/" class="nav-link"><i class="undefined"></i>
+  服务端渲染
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/framework/" class="nav-link"><i class="undefined"></i>
+  前端架构
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/awesome/typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      F2E基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/axios/" class="nav-link"><i class="undefined"></i>
+  axios
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/构建工具/" class="nav-link"><i class="undefined"></i>
+  构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/概念/" class="nav-link"><i class="undefined"></i>
+  概念
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Error/" class="nav-link"><i class="undefined"></i>
+  Error
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/框架/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/工程化/" class="nav-link"><i class="undefined"></i>
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/可视化/" class="nav-link"><i class="undefined"></i>
+  可视化
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/面试题/" class="nav-link"><i class="undefined"></i>
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/案例研究/" class="nav-link"><i class="undefined"></i>
+  案例研究
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Node Package Manager/" class="nav-link"><i class="undefined"></i>
+  Node Package Manager
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/CSS/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/Typescript/" class="nav-link"><i class="undefined"></i>
+  Typescript
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/jm-garming/categories/vscode/" class="nav-link"><i class="undefined"></i>
+  vscode
+</a></li></ul></div></div><div class="nav-item"><a href="/jm-garming/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/jm-garming/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Webpack4.x：配置解析(resolve)</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>garMing</span>
+            
+          <!---->
+          2024
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">Webpack4.x：配置解析(resolve)</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>garMing</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>3/29/2024</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>webpack</span></i></div></div> <div class="theme-reco-content content__default"><p><a href="https://webpack.docschina.org/configuration/" target="_blank" rel="noopener noreferrer">webpack 文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>webpack 的 resolve 配置模块如何解析。</p> <ol><li><p><strong>resolve.alias</strong>：创建 import 或 require 的别名，来确保模块引入变得更简单。例如，一些位于 src/ 文件夹下的常用模块</p> <div class="language-json extra-class"><pre class="language-json"><code>  module.exports = <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+    resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+      alias<span class="token operator">:</span> <span class="token punctuation">{</span>
+        Utilities<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> 'src/utilities/')<span class="token punctuation">,</span>
+        Templates<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> 'src/templates/')
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>;
+
+也可以在给定对象的键后的末尾添加 $，以表示精准匹配：
+
+  module.exports = <span class="token punctuation">{</span>
+</code></pre></div></li></ol> <p>//...
+resolve: {
+alias: {
+xyz$: path.resolve(__dirname, 'path/to/file.js')
+}
+}
+};
+```</p> <ol start="2"><li><strong>enforceExtension</strong>：是否启用文件后缀名才能被编译 默认不需要，开启将强制需要书写扩展名</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>module.exports = <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+    enforceExtension<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+</code></pre></div><ol start="3"><li><strong>extensions</strong>：自动省略扩展名</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>    在 Webpack 中，`resolve.extensions` 是用于配置在引入模块时可以省略的文件扩展名的选项。通过配置 `resolve.extensions`，可以告诉 Webpack 在解析模块路径时自动匹配指定的文件扩展名，从而在引入模块时可以省略文件扩展名。
+
+例如，如果你希望在引入模块时可以省略 `.js` 和 `.jsx` 文件的扩展名，可以这样配置 `resolve.extensions`：
+
+module.exports = <span class="token punctuation">{</span>
+  resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+    extensions<span class="token operator">:</span> <span class="token punctuation">[</span>'.js'<span class="token punctuation">,</span> '.jsx'<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+在上面的配置中，`resolve.extensions` 被设置为 `<span class="token punctuation">[</span>'.js'<span class="token punctuation">,</span> '.jsx'<span class="token punctuation">]</span>`，这样当你在代码中引入一个模块时，Webpack 会自动尝试匹配该模块对应的文件路径，可以省略文件扩展名 `.js` 和 `.jsx`。
+
+通过合理配置 `resolve.extensions`，可以简化模块引入时的书写，提高开发效率。但需要注意的是，过多的扩展名可能会降低解析速度并引起一些意外的行为，因此建议只配置项目中实际使用的文件扩展名。
+</code></pre></div><ol start="4"><li><p><strong>plugins</strong>：应该使用的额外的解析插件列表。它允许插件</p></li> <li><p><strong>library</strong>：如果需要将输出文件作为一个库来使用，可以通过该选项指定库的名称。
+在 webpack 中，<code>library</code> 选项用于指定如何导出 library，以便在其他项目或环境中使用。通过配置 <code>library</code>，你可以将你的代码打包成一个库（library），使其可以被其他模块引入并使用。</p></li></ol> <div class="language-json extra-class"><pre class="language-json"><code>    module.exports = <span class="token punctuation">{</span>
+<span class="token comment">//...</span>
+output<span class="token operator">:</span> <span class="token punctuation">{</span>
+  library<span class="token operator">:</span> 'MyLibrary'
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+</code></pre></div><p><code>library</code> 可以配置为一个字符串或对象，具体取决于你希望如何导出你的库。以下是一些常见的用法：</p> <ol><li><p><strong>将库暴露给全局变量</strong>：通过设置 <code>library</code> 为一个字符串，可以将库暴露为一个全局变量，从而可以在浏览器环境下直接访问该库。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">library</span><span class="token operator">:</span> <span class="token string">'MyLibrary'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><strong>将库暴露给 CommonJS 模块</strong>：通过设置 <code>library</code> 为一个对象，可以将库暴露为一个 CommonJS 模块，以便在 Node.js 等环境中使用。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">library</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'commonjs2'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'MyLibrary'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><strong>将库暴露给 AMD 模块</strong>：也可以将库暴露为一个 AMD 模块，以便在浏览器环境中使用 RequireJS 等模块加载器。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">library</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'amd'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'MyLibrary'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <p>通过配置 <code>library</code>，你可以根据需要将你的代码打包成不同类型的库，并指定如何在不同环境下使用这个库。这样可以更灵活地管理和共享你的代码。</p> <ol start="6"><li><strong>libraryTarget</strong>：指定以何种方式导出库，比如 commonjs、amd、umd 等。</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>    webpack 中的 `libraryTarget` 配置项用于指定以何种方式导出库。当你将打包后的文件作为一个库供他人使用时，`libraryTarget` 非常有用。以下是一些常见的 `libraryTarget` 可选项：
+
+    <span class="token number">1</span>. **var**：将库暴露为一个变量，适用于浏览器环境。
+    <span class="token number">2</span>. **commonjs**：将库暴露为 CommonJS 模块，适用于 Node.js 环境。
+
+    <span class="token number">3</span>. **commonjs2**：和 commonjs 类似，但返回的是 module.exports.default。
+
+    <span class="token number">4</span>. **amd**：将库暴露为 AMD 模块，适用于 RequireJS 等 AMD 加载器。
+
+    <span class="token number">5</span>. **umd**：通用模块定义，可以在 CommonJS、AMD 和全局变量使用。
+
+    <span class="token number">6</span>. **this**：将库绑定到 this 上，适用于全局变量和 CommonJS 模块。
+
+    <span class="token number">7</span>. **window**：将库暴露为全局变量，在浏览器中使用。
+
+    通过设置 `libraryTarget`，你可以根据需要选择合适的导出方式，以确保你的库能够在不同的环境中被正确引用和调用。这样可以增加库的灵活性和可移植性，使其更易于被其他开发者使用。
+
+</code></pre></div><ol start="7"><li><strong>pathinfo</strong>：指定是否在输出文件中包含有关模块路径信息。</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>    值为 <span class="token boolean">true</span> 或者 <span class="token boolean">false</span>.
+
+    默认 webpack 会在输出的 bundle 中生成路径信息，设置为<span class="token boolean">false</span>将路径信息删除可小幅提升构建速度。
+
+</code></pre></div><ol start="8"><li><strong>sourceMapFilename</strong>：指定输出的 source map 文件名称。</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>    在 webpack 中，`sourceMapFilename` 选项用于指定生成的 source map 文件的名称。source map 是一种文件，其中包含了原始源代码和转换后的代码之间的映射关系，它能够帮助开发者在调试阶段更容易地定位到源代码中的问题。
+
+    通过配置 `sourceMapFilename`，你可以指定生成的 source map 文件的名称和路径。通常情况下，你可以使用占位符（placeholders）来动态地生成文件名，比如 `<span class="token punctuation">[</span>name<span class="token punctuation">]</span>`、`<span class="token punctuation">[</span>id<span class="token punctuation">]</span>`、`<span class="token punctuation">[</span>hash<span class="token punctuation">]</span>` 等。
+
+    例如，如果你设置了 `sourceMapFilename` 为 `sourcemap/<span class="token punctuation">[</span>file<span class="token punctuation">]</span>.map`，那么生成的 source map 文件会被放置在一个名为 `sourcemap` 的目录下，并且文件名会与对应的 JavaScript 文件名相同，只是后缀变为 `.map`。
+
+    正确配置 `sourceMapFilename` 可以帮助你管理和组织生成的 source map 文件，使其与对应的 JavaScript 文件关联并且易于在调试时使用。
+
+</code></pre></div><ol start="9"><li><strong>assetModuleFilename</strong> 是 webpack 配置中用来指定生成的静态资源文件名规则的一个选项</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>    `assetModuleFilename` 是 webpack 配置中用来指定生成的静态资源文件名规则的一个选项。通过配置 `assetModuleFilename`，可以控制 webpack 如何命名生成的资源文件，比如图片、字体等。
+
+例如，可以这样配置 `assetModuleFilename`：
+
+  module.exports = <span class="token punctuation">{</span>
+    <span class="token comment">//...其他配置</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+      assetModuleFilename<span class="token operator">:</span> 'images/<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">[</span>ext<span class="token punctuation">]</span>'
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>;
+上面的配置将会把所有的静态资源文件都放在 `images` 文件夹下，文件名保持原始文件名不变，这样生成的图片文件就会被命名为 `images/example.jpg`。根据具体需求，你可以根据自己的项目结构和规范来配置 `assetModuleFilename`。
+
+</code></pre></div><ol start="10"><li><p><strong>auxiliaryComment</strong> 为生成插入注释</p></li> <li><p><strong>chunkLoadTimeout</strong> chunk 请求到期毫秒数，默认为 120 000</p></li></ol> <div class="language-json extra-class"><pre class="language-json"><code>  在 webpack 中，`chunkLoadTimeout` 是用来指定加载代码块（chunk）的超时时间的选项。当使用动态导入（dynamic import）或 `import()` 来异步加载代码块时，如果加载超时，webpack 将会采取相应的处理方式。
+
+通过配置 `chunkLoadTimeout`，你可以指定加载代码块的超时时间，单位是毫秒。如果代码块在指定的超时时间内没有成功加载，webpack 将会触发相应的处理逻辑，比如显示错误信息或者执行其他自定义的操作。
+
+例如，你可以这样配置 `chunkLoadTimeout`：
+
+module.exports = <span class="token punctuation">{</span>
+  <span class="token comment">//...其他配置</span>
+  performance<span class="token operator">:</span> <span class="token punctuation">{</span>
+    chunkLoadTimeout<span class="token operator">:</span> <span class="token number">120000</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+在上面的配置中，`chunkLoadTimeout` 被设置为 <span class="token number">120000</span> 毫秒（即 <span class="token number">2</span> 分钟）。这意味着如果一个代码块加载超过 <span class="token number">2</span> 分钟仍未完成，webpack 将会触发相应的性能处理逻辑。
+
+通过合理配置 `chunkLoadTimeout`，你可以控制代码块加载的超时行为，从而优化用户体验和应用程序的性能。
+
+
+</code></pre></div><ol start="12"><li><strong>crossOriginLoading</strong></li></ol> <div class="language-json extra-class"><pre class="language-json"><code>在 webpack 中，`crossOriginLoading` 是用于配置加载跨域资源的选项。当你需要从不同源加载资源时（比如从 CDN 加载 JavaScript 文件），可以通过配置 `crossOriginLoading` 来指定在加载这些资源时使用何种跨域策略。
+
+具体而言，`crossOriginLoading` 可以设置为以下几种值：
+
+- `<span class="token string">&quot;anonymous&quot;</span>`：表示以匿名方式加载跨域资源，不发送用户凭据（如 cookie）。
+- `<span class="token string">&quot;use-credentials&quot;</span>`：表示以使用凭据的方式加载跨域资源，会发送用户凭据（如 cookie）。
+
+例如，你可以这样配置 `crossOriginLoading`：
+
+module.exports = <span class="token punctuation">{</span>
+  <span class="token comment">//...其他配置</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    crossOriginLoading<span class="token operator">:</span> 'anonymous'
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+在上面的配置中，`crossOriginLoading` 被设置为 `'anonymous'`，意味着在加载跨域资源时将以匿名方式进行加载。
+
+通过合理配置 `crossOriginLoading` 选项，你可以控制 webpack 在加载跨域资源时的行为，确保符合安全性和性能的要求。
+
+</code></pre></div><ol start="13"><li><strong>jsonpScriptType</strong></li></ol> <div class="language-json extra-class"><pre class="language-json"><code>在 webpack 中，`jsonpScriptType` 是一个配置选项，用于指定动态加载的 JSONP 脚本标签的 `type` 属性。JSONP（JSON with Padding）是一种跨域数据请求方式，通常用于在浏览器中进行跨域数据获取。
+
+通过配置 `jsonpScriptType`，你可以指定 webpack 在动态加载代码块时使用的 JSONP 脚本标签的 `type` 属性，以便适应不同环境或需求。
+
+例如，你可以这样配置 `jsonpScriptType`：
+
+
+module.exports = <span class="token punctuation">{</span>
+  <span class="token comment">//...其他配置</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    jsonpScriptType<span class="token operator">:</span> 'module'
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+
+在上面的配置中，`jsonpScriptType` 被设置为 `'module'`，表示在动态加载代码块时将使用带有 `type=<span class="token string">&quot;module&quot;</span>` 属性的 JSONP 脚本标签。
+
+通过合理配置 `jsonpScriptType` 选项，你可以控制 webpack 在动态加载代码块时生成的 JSONP 脚本标签的 `type` 属性，以适配不同的场景和需求。
+
+</code></pre></div><ol start="14"><li><strong>libraryExport</strong></li></ol> <div class="language-json extra-class"><pre class="language-json"><code>在 Webpack 中，`libraryExport` 是一个配置选项，用于指定库导出暴露的内容。当你打包一个库（Library）时，可以使用 `libraryExport` 来指定哪些模块或变量会被导出给用户使用。
+
+常见的用法是将 `libraryExport` 配置为导出某个模块中的特定变量或函数。例如，如果你的库有一个入口文件 `index.js`，并且你想要导出该文件中的特定函数 `myFunction`，你可以这样配置：
+
+module.exports = <span class="token punctuation">{</span>
+  <span class="token comment">//...其他配置</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    library<span class="token operator">:</span> 'MyLibrary'<span class="token punctuation">,</span>
+    libraryTarget<span class="token operator">:</span> 'umd'<span class="token punctuation">,</span>
+    libraryExport<span class="token operator">:</span> 'myFunction'
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>;
+
+在上面的配置中，`libraryExport` 被设置为 `'myFunction'`，表示只导出 `index.js` 中的 `myFunction` 函数。这样，在使用你的库时，用户只能访问到 `myFunction` 这个函数。
+
+通过合理配置 `libraryExport`，你可以控制库打包后向外暴露的内容，确保用户可以方便地访问到他们需要的部分。
+
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">3/25/2024, 10:13:15 PM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/jm-garming/assets/js/app.9b9a5a22.js" defer></script><script src="/jm-garming/assets/js/3.14bd5e3b.js" defer></script><script src="/jm-garming/assets/js/1.b59f91fd.js" defer></script><script src="/jm-garming/assets/js/39.f11844ea.js" defer></script>
+  </body>
+</html>
