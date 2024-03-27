@@ -21,15 +21,15 @@ module.exports = {
   serviceWorker: true, // 是否开启 PWA
   plugins: [
     'demo-container',
-    [
-      'vuepress-plugin-nuggets-style-copy',
-      {
-        copyText: 'copy',
-        tip: {
-          content: 'sueecss',
-        },
-      },
-    ],
+    // [
+    //   'vuepress-plugin-nuggets-style-copy',
+    //   {
+    //     copyText: 'copy',
+    //     tip: {
+    //       content: 'sueecss',
+    //     },
+    //   },
+    // ],
   ], // 配置插件
   themeConfig: {
     style: '@vuepress-reco/style-default',
@@ -61,6 +61,5 @@ module.exports = {
       ],
     },
     nav,
-    
   },
 }
